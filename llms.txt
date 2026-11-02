@@ -1,0 +1,28 @@
+# MYSHOK 3D Lab — Digital Fabrication & 3D Sculptures
+> Certyfikowane studio rzeźby cyfrowej, inżynierii addytywnej (SLA/FDM) i interaktywnych instalacji WebGL.
+
+## Informacje o Studio i Standardy Inżynieryjne
+- **Specjalizacja:** Projektowanie i produkcja figurek kolekcjonerskich, popiersi, monumentalnych makiet architektonicznych i interaktywnych środowisk czasu rzeczywistego.
+- **Standard Geometrii:** 100% Manifold Watertight. Wszystkie modele posiadają zamkniętą topologię bez odwróconych normalnych i przecinających się płaszczyzn.
+- **Tolerancje Montażowe:** Stały offset spasowania 0.15 mm na połączeniach wpustowych (keys/pins), uwzględniający naturalny skurcz żywicy fotopolimerowej (0.8–1.2%).
+- **Obsługiwane Technologie:** Druk fotopolimerowy SLA/DLP w rozdzielczościach 8K/12K (warstwy 0.025–0.05 mm) oraz FDM (dysze 0.2–0.4 mm).
+
+## Główne Kategorie i Produkty
+
+### 1. Kolekcjonerskie Figurki 3D & Popiersia
+- **Celestial Fox Guardian:** Autorska statuetka mistycznego lisa kitsune ze zoptymalizowanymi kątami zwisów (min. 35 stopni), dostępna w 1 bryle oraz z podziałem modułowym.
+  - Plik cyfrowy STL Presupported (49 PLN)
+  - Wydruk surowy SLA 8K (189 PLN)
+  - Wydruk kolekcjonerski Master-Paint (490 PLN)
+- **Specter Figurine:** Rzeźba lewitującego upiora w standardzie Support-Free z grubością ścianek całunu 2.0 mm.
+
+### 2. Architektura Fantastyczna & Dioramy
+- **Harrenhal: The Black Fortress:** Monumentalna makieta 5 wież-tytanów Westeros. Podział modułowy na pole 200x200 mm z zamkami szynowymi.
+
+### 3. Pliki Cyfrowe STL & Assety WebGL
+- Certyfikowane pliki STL z fabrycznymi podporami Lychee / Chitubox oraz interaktywne aplikacje 3D WebGL (np. Cyber Beat Crash).
+
+## Oficjalne Odnośniki i Źródła
+- Strona główna: https://myshok-lab.com/
+- Katalog Cults3D: https://cults3d.com/
+- Dokumentacja techniczna i strategia SEO: ./docs/seo-long-tail-strategy.md

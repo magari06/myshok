@@ -1,0 +1,36 @@
+# ===================================================================
+# 🤖 MYSHOK 3D Lab — robots.txt (Стандарты 2025–2026 / GEO & SEO)
+# ===================================================================
+
+# 1. КЛАССИЧЕСКИЕ ПОИСКОВЫЕ СИСТЕМЫ (Google, Bing, Yandex, Apple)
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: Yandex
+User-agent: Applebot
+Allow: /
+Disallow: /admin/
+Disallow: /api/internal/
+
+# 2. ПОИСКОВЫЕ ИИ-БОТЫ И RAG-АГЕНТЫ (Цитирование в ChatGPT Search, Perplexity, Claude)
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: DuckAssistBot
+Allow: /
+Disallow: /admin/
+Disallow: /api/internal/
+
+# 3. БОТЫ ОБУЧЕНИЯ БАЗОВЫХ МОДЕЛЕЙ (Training Crawlers)
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /admin/
+
+# Sitemaps & LLM Manifest
+Sitemap: https://myshok-lab.com/sitemap.xml
+# LLMs.txt manifest: https://myshok-lab.com/llms.txt

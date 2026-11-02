@@ -1,0 +1,3685 @@
+<!DOCTYPE html>
+<html lang="pl" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MYSHOK — Kolekcjonerskie Rzeźby 3D, Pliki STL Presupported & Fabrykacja Cyfrowa (SLA / FDM)</title>
+  <meta name="description" content="Niezależne studio rzeźby 3D i fabrykacji cyfrowej. Kolekcjonerskie figurki z żywicy 8K, certyfikowane pliki STL presupported, makiety architektoniczne i interaktywny WebGL. 100% zamknięta geometria manifold, tolerancja pasowania 0.15 mm.">
+  <meta name="keywords" content="kolekcjonerskie figurki do druku 3d sla pliki stl, makiety zamków fantasy stl, gotowe modele 3d z kluczami montażowymi presupported, rzeźbienie cyfrowe blender zbrush, figurki żywiczne master paint">
+  <link rel="canonical" href="https://myshok-lab.com/">
+
+  <!-- OpenGraph & Twitter Meta Tags (GEO / Social Trust) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MYSHOK — Kolekcjonerskie Rzeźby 3D & Fabrykacja Cyfrowa">
+  <meta property="og:description" content="Autorskie rzeźby 3D, certyfikowane pliki STL presupported oraz precyzyjne wydruki SLA 8K. Manifold geometry, zerowy błąd topologii.">
+  <meta property="og:url" content="https://myshok-lab.com/">
+  <meta property="og:site_name" content="MYSHOK 3D Lab">
+  <meta property="og:locale" content="pl_PL">
+
+  <!-- Schema.org Linked Knowledge Graph (@graph) based on Master Docs 2025-2026 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://myshok-lab.com/#organization",
+        "name": "MYSHOK 3D Lab",
+        "url": "https://myshok-lab.com/",
+        "logo": "https://myshok-lab.com/logo.png",
+        "description": "Studio rzeźby cyfrowej, inżynierii addytywnej i interaktywnych doświadczeń WebGL.",
+        "sameAs": [
+          "https://cults3d.com",
+          "https://github.com/magari06",
+          "https://instagram.com/pri.mishok",
+          "https://t.me/donbassisukrainians"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://myshok-lab.com/#website",
+        "url": "https://myshok-lab.com/",
+        "name": "MYSHOK 3D Lab",
+        "publisher": { "@id": "https://myshok-lab.com/#organization" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://myshok-lab.com/#webpage",
+        "url": "https://myshok-lab.com/",
+        "name": "Kolekcjonerskie Rzeźby 3D, Pliki STL Presupported i Makiety Architektoniczne",
+        "isPartOf": { "@id": "https://myshok-lab.com/#website" },
+        "breadcrumb": { "@id": "https://myshok-lab.com/#breadcrumb" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://myshok-lab.com/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona Główna",
+            "item": "https://myshok-lab.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Katalog Prac i Rzeźb 3D",
+            "item": "https://myshok-lab.com/#featured"
+          }
+        ]
+      },
+      {
+        "@type": "Product",
+        "@id": "https://myshok-lab.com/#product-fox",
+        "name": "Celestial Fox Guardian — Kolekcjonerska Rzeźba 3D (STL / SLA)",
+        "description": "Dynamiczna rzeźba mistycznego lisa zoptymalizowana pod fotopolimeryzację SLA 8K i druk FDM. 420 000 wielokątów, 100% Manifold Watertight, wersja jednoczęściowa oraz modułowa z wpustami 0.15 mm.",
+        "category": "Kolekcjonerskie Rzeźby 3D",
+        "brand": { "@id": "https://myshok-lab.com/#organization" },
+        "offers": {
+          "@type": "Offer",
+          "price": "49.00",
+          "priceCurrency": "PLN",
+          "availability": "https://schema.org/InStock",
+          "url": "https://cults3d.com"
+        }
+      },
+      {
+        "@type": "Product",
+        "@id": "https://myshok-lab.com/#product-harrenhal",
+        "name": "Harrenhal: The Black Fortress — Makieta Architektoniczna 3D (STL)",
+        "description": "Monumentalna makieta cytadeli Harrenhal złożona z 5 wież-tytanów połączonych podniebnymi mostami. Podział modułowy na stół 200x200 mm z systemem zamków szynowych.",
+        "category": "Architektura Fantastyczna & Dioramy",
+        "brand": { "@id": "https://myshok-lab.com/#organization" },
+        "offers": {
+          "@type": "Offer",
+          "price": "89.00",
+          "priceCurrency": "PLN",
+          "availability": "https://schema.org/InStock",
+          "url": "https://cults3d.com"
+        }
+      }
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Theme Variables */
+    :root[data-theme="light"] {
+      --bg: #f5f7fb;
+      --bg-rgb: 245, 247, 251;
+      --surface: #ffffff;
+      --text: #0b0d13;
+      --text-muted: #5e6678;
+      --border: rgba(11, 13, 19, 0.08);
+      --border-hover: rgba(11, 13, 19, 0.2);
+      --pill-btn-bg: #1c202a;
+      --pill-btn-text: #ffffff;
+      --pill-light-bg: #e6ebf5;
+      --pill-light-text: #0b0d13;
+      --blue-ribbon: #2446ff;
+      --card-shadow: 0 30px 60px rgba(0, 0, 0, 0.06);
+      --badge-bg: rgba(255, 255, 255, 0.92);
+      --theme-btn-bg: #161820;
+      --theme-btn-color: #ffffff;
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #090a0e;
+      --bg-rgb: 9, 10, 14;
+      --surface: #12141c;
+      --text: #f0f2f7;
+      --text-muted: #8b92a4;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.22);
+      --pill-btn-bg: #f0f2f7;
+      --pill-btn-text: #090a0e;
+      --pill-light-bg: #1b1e2a;
+      --pill-light-text: #f0f2f7;
+      --blue-ribbon: #385dff;
+      --card-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+      --badge-bg: rgba(18, 20, 28, 0.92);
+      --theme-btn-bg: #ffffff;
+      --theme-btn-color: #090a0e;
+    }
+
+    html, body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      transition: background-color 0.4s ease, color 0.4s ease;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 48px;
+      position: relative;
+      z-index: 5;
+    }
+
+    /* Fixed Header Nav */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 84px;
+      padding: 0 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      background: rgba(var(--bg-rgb), 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: background-color 0.4s ease, border-color 0.4s ease;
+    }
+
+    .brand-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Animated Theme Toggle Button */
+    .theme-toggle-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--theme-btn-bg);
+      color: var(--theme-btn-color);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease, color 0.4s ease;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+    }
+    .theme-toggle-btn:hover {
+      transform: scale(1.1) rotate(15deg);
+    }
+    .theme-icon {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform 0.4s ease;
+    }
+
+    /* Circular Social Buttons */
+    .social-links-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .circle-social-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+    .circle-social-btn:hover {
+      transform: translateY(-2px) scale(1.08);
+      border-color: var(--blue-ribbon);
+      color: var(--blue-ribbon);
+      box-shadow: 0 8px 20px rgba(36, 70, 255, 0.18);
+    }
+    .social-icon {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .pill-back-btn {
+      height: 44px;
+      padding: 0 22px;
+      border-radius: 100px;
+      background: var(--pill-btn-bg);
+      color: var(--pill-btn-text);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+    }
+    .pill-back-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .pill-menu-btn {
+      height: 44px;
+      padding: 0 22px;
+      border-radius: 100px;
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+    .pill-menu-btn:hover {
+      border-color: var(--border-hover);
+    }
+    .dots-menu {
+      display: flex;
+      gap: 3px;
+      transition: transform 0.2s ease;
+    }
+    .dots-menu span {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+    .dots-menu.dots-vertical {
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    /* Single-Card Dropdown Menu */
+    .menu-dropdown-wrapper {
+      position: fixed;
+      top: 88px;
+      right: 48px;
+      width: 300px;
+      z-index: 1001;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-12px) scale(0.96);
+      transform-origin: top right;
+      transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s;
+    }
+    .menu-dropdown-wrapper.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+    }
+    .menu-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.16);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      padding: 32px 28px;
+    }
+    .nav-card-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .nav-card-links a {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      text-decoration: none;
+      text-transform: uppercase;
+      display: inline-block;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+    .nav-card-links a:hover {
+      color: var(--blue-ribbon);
+      transform: translateX(8px);
+    }
+
+    .menu-socials-row {
+      display: none;
+      gap: 12px;
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      justify-content: center;
+    }
+
+    /* FULLSCREEN 3D PLAYGROUND WITH SWARM OF SCULPTURES */
+    .fullscreen-sandbox-section {
+      width: 100%;
+      height: 92vh;
+      margin-top: 84px;
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(circle at 50% 50%, rgba(36, 70, 255, 0.05) 0%, transparent 70%);
+      border-bottom: 1px solid var(--border);
+    }
+    #sandbox-canvas {
+      width: 100%;
+      height: 100%;
+      cursor: crosshair;
+    }
+
+    .content-wrapper-relative {
+      position: relative;
+      width: 100%;
+    }
+
+    /* DYNAMIC RESPONSIVE CANVAS FOR PROGRESSIVE DRAWING RIBBON */
+    #ribbon-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* SECTION: HERO HEADLINE & MORPHING WINDOW */
+    .hero-content-section {
+      padding: 130px 0 60px;
+      position: relative;
+      min-height: 80vh;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 40px;
+      align-items: flex-start;
+      margin-bottom: 60px;
+      position: relative;
+      z-index: 6;
+    }
+    .hero-headline {
+      font-size: clamp(48px, 6.5vw, 98px);
+      font-weight: 800;
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+    }
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      padding-top: 18px;
+    }
+    .hero-lead-text {
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.65;
+      max-width: 460px;
+    }
+    .pill-approach-btn {
+      align-self: flex-start;
+      height: 44px;
+      padding: 0 24px;
+      border-radius: 100px;
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
+      transition: all 0.25s ease;
+    }
+    .pill-approach-btn:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+    .pill-approach-btn .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--text);
+    }
+
+    /* MORPHING WINDOW: Curving organic shape -> Expands smoothly into full 3D stage */
+    @keyframes morphOrganicBlob {
+      0% {
+        border-radius: 56% 44% 66% 34% / 46% 56% 44% 54%;
+        transform: rotate(-3deg) scale(0.96);
+      }
+      33% {
+        border-radius: 44% 56% 36% 64% / 54% 42% 58% 46%;
+        transform: rotate(2deg) scale(0.98);
+      }
+      66% {
+        border-radius: 60% 40% 54% 46% / 42% 62% 38% 58%;
+        transform: rotate(-1.5deg) scale(0.95);
+      }
+      100% {
+        border-radius: 56% 44% 66% 34% / 46% 56% 44% 54%;
+        transform: rotate(-3deg) scale(0.96);
+      }
+    }
+
+    .morph-wrapper {
+      position: relative;
+      padding: 60px 0 140px;
+      z-index: 10;
+    }
+    .morph-stage {
+      position: relative;
+      width: 250px;
+      height: 165px;
+      border-radius: 56% 44% 66% 34% / 46% 56% 44% 54%;
+      background: var(--surface);
+      border: 2px solid var(--border);
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
+      transform-origin: center center;
+      animation: morphOrganicBlob 8s ease-in-out infinite;
+      transition: width 1.35s cubic-bezier(0.16, 1, 0.3, 1), 
+                  height 1.35s cubic-bezier(0.16, 1, 0.3, 1), 
+                  border-radius 1.35s cubic-bezier(0.16, 1, 0.3, 1), 
+                  transform 1.35s cubic-bezier(0.16, 1, 0.3, 1),
+                  border-color 0.8s ease, 
+                  box-shadow 1.35s ease;
+      margin: 0;
+    }
+
+    .morph-stage.expanded {
+      animation: none;
+      width: 100%;
+      height: 720px;
+      border-radius: 36px;
+      transform: rotate(0deg) scale(1);
+      box-shadow: 0 45px 120px rgba(0, 0, 0, 0.22);
+      border-color: var(--border-hover);
+    }
+
+    #morph-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      cursor: grab;
+      z-index: 1;
+    }
+    #morph-canvas canvas {
+      width: 100% !important;
+      height: 100% !important;
+      display: block;
+    }
+    #morph-canvas:active {
+      cursor: grabbing;
+    }
+
+    .morph-loader {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      z-index: 5;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+    .spinner-ring {
+      width: 32px;
+      height: 32px;
+      border: 3px solid var(--border);
+      border-top-color: var(--blue-ribbon);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Overlay HUD inside Morph Window */
+    .morph-hud {
+      position: absolute;
+      top: 32px;
+      left: 36px;
+      right: 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(-14px);
+      transition: opacity 0.5s ease 0.3s, transform 0.5s ease 0.3s;
+      z-index: 20;
+    }
+    .morph-stage.expanded .morph-hud {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .morph-info-card {
+      background: var(--badge-bg);
+      padding: 16px 24px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      backdrop-filter: blur(20px);
+      max-width: 440px;
+    }
+    .hud-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--blue-ribbon);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .hud-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .hud-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .cults-btn {
+      pointer-events: auto;
+      height: 48px;
+      padding: 0 28px;
+      border-radius: 100px;
+      background: var(--blue-ribbon);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 12px 28px rgba(36, 70, 255, 0.4);
+      transition: all 0.25s ease;
+    }
+    .cults-btn:hover {
+      background: #1938e6;
+      transform: translateY(-2px);
+    }
+
+    .morph-dock {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--badge-bg);
+      border: 1px solid var(--border);
+      padding: 8px 18px;
+      border-radius: 100px;
+      backdrop-filter: blur(20px);
+      z-index: 20;
+      opacity: 0;
+      transition: opacity 0.5s ease 0.3s;
+    }
+    .morph-stage.expanded .morph-dock {
+      opacity: 1;
+    }
+
+    .swatch {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    .swatch.active {
+      border-color: var(--text);
+      transform: scale(1.15);
+    }
+    .sw-original { 
+      background: linear-gradient(135deg, #d35400, #f39c12, #2980b9); 
+    }
+    .sw-white { background: #f0f2f5; }
+    .sw-dark { background: #16171d; border-color: rgba(120, 120, 120, 0.3); }
+    .sw-terracotta { background: #c85a32; }
+    .sw-blue { background: #2446ff; }
+    .dock-sep {
+      width: 1px;
+      height: 18px;
+      background: var(--border);
+      margin: 0 4px;
+    }
+    .wire-btn {
+      background: transparent;
+      border: none;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 4px 10px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+    .wire-btn.active {
+      color: var(--text);
+      background: var(--border-hover);
+    }
+
+    .morph-hint-tag {
+      position: absolute;
+      bottom: 16px;
+      left: 20px;
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: var(--text-muted);
+      background: var(--badge-bg);
+      padding: 4px 10px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      backdrop-filter: blur(8px);
+      transition: opacity 0.3s ease;
+    }
+    .morph-stage.expanded .morph-hint-tag {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* SECTION 4: FEATURED WORK (VERTICAL STAGGERED CHECKERBOARD LAYOUT) */
+    .featured-section {
+      padding: 100px 0 180px;
+      border-top: 1px solid var(--border);
+      position: relative;
+      z-index: 10;
+      scroll-margin-top: 84px; /* Flushes with top under fixed header! */
+    }
+    .featured-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 70px;
+    }
+    .featured-title {
+      font-size: clamp(42px, 6vw, 76px);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+    .featured-subtitle {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      max-width: 380px;
+      line-height: 1.5;
+    }
+
+    /* Two-column staggered checkerboard grid (Шахматный порядок) */
+    .featured-staggered-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 56px;
+      row-gap: 0;
+      position: relative;
+      z-index: 6;
+    }
+
+    .stagger-col-left {
+      display: flex;
+      flex-direction: column;
+      gap: 120px;
+    }
+
+    .stagger-col-right {
+      display: flex;
+      flex-direction: column;
+      gap: 120px;
+      margin-top: 150px; /* Checkerboard vertical offset */
+    }
+
+    .project-card {
+      width: 100%;
+      cursor: pointer;
+      text-decoration: none;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .project-image-box {
+      width: 100%;
+      height: 480px;
+      border-radius: 28px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 22px;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.4s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    }
+    .project-card:hover .project-image-box {
+      transform: scale(1.015);
+      border-color: var(--border-hover);
+      box-shadow: var(--card-shadow);
+    }
+    .card-3d-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100% !important;
+      height: 100% !important;
+      opacity: 0;
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 2;
+      pointer-events: auto;
+    }
+    .card-3d-canvas.loaded {
+      opacity: 1;
+    }
+    .card-svg-fallback {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.5s ease;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .card-svg-fallback.hidden {
+      opacity: 0;
+    }
+    .card-3d-badge {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      padding: 5px 12px;
+      border-radius: 100px;
+      background: var(--badge-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      color: var(--text);
+      letter-spacing: 0.04em;
+      z-index: 5;
+      pointer-events: none;
+    }
+    .project-tags {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+    .project-name {
+      font-size: clamp(30px, 3.2vw, 42px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      transition: color 0.2s ease;
+    }
+    .project-card:hover .project-name {
+      color: var(--blue-ribbon);
+    }
+    .project-name .arrow-icon {
+      font-size: 26px;
+      transition: transform 0.3s ease;
+    }
+    .project-card:hover .arrow-icon {
+      transform: translate(4px, -4px);
+    }
+
+    /* PROJECT DETAIL VIEW */
+    #project-detail-view {
+      min-height: 100vh;
+      padding: 130px 0 100px;
+      background-color: var(--bg);
+      position: relative;
+      z-index: 50;
+    }
+    .project-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 60px;
+      align-items: flex-start;
+    }
+    .project-detail-left {
+      display: flex;
+      flex-direction: column;
+      padding-top: 20px;
+    }
+    .project-detail-title {
+      font-size: clamp(48px, 6vw, 84px);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.0;
+      margin-bottom: 28px;
+    }
+    .project-detail-story {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 520px;
+    }
+    .project-meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-bottom: 44px;
+    }
+    .meta-heading {
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      color: #ff5500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .meta-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.4;
+    }
+    .meta-list a {
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.2s;
+    }
+    .meta-list a:hover {
+      color: #ff5500;
+    }
+
+    .launch-project-btn {
+      height: 52px;
+      padding: 0 34px;
+      border-radius: 100px;
+      background: var(--pill-btn-bg);
+      color: var(--pill-btn-text);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-flex;
+      align-self: flex-start;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+      transition: all 0.25s ease;
+    }
+    .launch-project-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+    }
+    .launch-project-btn .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    /* Glowing Rainbow Neon Frame 3D Interactive Theater */
+    .project-detail-right {
+      position: sticky;
+      top: 110px;
+    }
+    .project-theater-glow-wrapper {
+      position: relative;
+      width: 100%;
+      height: 640px;
+      border-radius: 36px;
+      padding: 3px;
+      background: linear-gradient(135deg, #ff007f, #b5179e, #7209b7, #3a86ff, #00f5d4);
+      box-shadow: 0 0 50px rgba(185, 45, 255, 0.28), 0 30px 80px rgba(0,0,0,0.35);
+      overflow: hidden;
+    }
+    .project-theater-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 33px;
+      background: var(--surface);
+      position: relative;
+      overflow: hidden;
+    }
+    #detail-3d-canvas {
+      width: 100%;
+      height: 100%;
+      cursor: grab;
+    }
+    #detail-3d-canvas:active {
+      cursor: grabbing;
+    }
+
+    .detail-loader {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      z-index: 15;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    .theater-brand-badge {
+      position: absolute;
+      top: 24px;
+      left: 28px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--text);
+      z-index: 10;
+      text-transform: uppercase;
+    }
+    .theater-hand-hint {
+      position: absolute;
+      bottom: 24px;
+      right: 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      z-index: 10;
+      text-transform: uppercase;
+      pointer-events: none;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 60px 0;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    .footer-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* =========================================================================
+       CATEGORY FILTER & DYNAMIC CATEGORY SEO CARD (Answer Capsules Standards)
+       ========================================================================= */
+    .category-nav-wrapper {
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
+    }
+    .category-pills {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .cat-pill {
+      height: 44px;
+      padding: 0 24px;
+      border-radius: 100px;
+      background: var(--surface);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+    }
+    .cat-pill:hover {
+      color: var(--text);
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+    .cat-pill.active {
+      background: var(--pill-btn-bg);
+      color: var(--pill-btn-text);
+      border-color: var(--pill-btn-bg);
+      box-shadow: 0 8px 20px rgba(36, 70, 255, 0.22);
+    }
+    .cat-pill .pill-count {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      opacity: 0.75;
+    }
+
+    .category-seo-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      padding: 32px 36px;
+      margin-bottom: 56px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.04);
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+    .category-seo-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--blue-ribbon), #00f5d4);
+    }
+    .category-seo-badge {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--blue-ribbon);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .category-seo-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+      line-height: 1.25;
+      color: var(--text);
+    }
+    .category-seo-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.68;
+      max-width: 960px;
+      margin-bottom: 22px;
+    }
+    .category-seo-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .category-seo-tags span {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      padding: 6px 14px;
+      border-radius: 100px;
+      background: var(--pill-light-bg);
+      color: var(--pill-light-text);
+      border: 1px solid var(--border);
+      letter-spacing: 0.02em;
+    }
+
+    /* =========================================================================
+       PRODUCT DETAIL: INTERACTIVE VARIANT SELECTOR & ENGINEERING SPECS
+       ========================================================================= */
+    .product-variant-configurator {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 32px 28px;
+      margin: 36px 0 40px;
+      box-shadow: 0 16px 44px rgba(0, 0, 0, 0.05);
+    }
+    .config-header {
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 16px;
+    }
+    .config-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--blue-ribbon);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .config-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .variant-group {
+      margin-bottom: 24px;
+    }
+    .variant-label {
+      display: block;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .variant-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+    }
+    .var-btn {
+      min-height: 56px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 4px;
+      text-align: left;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .var-btn:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+    .var-btn.active {
+      border-color: var(--blue-ribbon);
+      background: rgba(36, 70, 255, 0.07);
+      box-shadow: 0 0 0 2px rgba(36, 70, 255, 0.35);
+    }
+    .var-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .var-sub {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: var(--text-muted);
+      line-height: 1.25;
+    }
+    .var-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .variant-summary-card {
+      margin-top: 26px;
+      padding: 24px 22px;
+      border-radius: 20px;
+      background: var(--pill-light-bg);
+      border: 1px solid var(--border);
+    }
+    .summary-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 18px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+    .price-block {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .price-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+    }
+    .price-val {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--blue-ribbon);
+      line-height: 1;
+    }
+    .price-note {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .summary-meta-grid {
+      display: flex;
+      gap: 24px;
+    }
+    .sm-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .sm-val {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .package-contents {
+      margin-top: 14px;
+    }
+    .pkg-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text);
+      display: block;
+      margin-bottom: 10px;
+      letter-spacing: 0.04em;
+    }
+    .pkg-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .pkg-list li {
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      line-height: 1.4;
+    }
+    .pkg-list li::before {
+      content: '✓';
+      color: #00b894;
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    /* Engineering Specs Semantic Table (High Information Gain & AI Parsing) */
+    .specs-table-wrapper {
+      margin: 28px 0;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow-x: auto;
+      background: var(--surface);
+    }
+    .specs-table-header {
+      padding: 16px 20px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 13px;
+    }
+    .specs-table th, .specs-table td {
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--border);
+    }
+    .specs-table th {
+      background: var(--bg);
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .specs-table tr:last-child td {
+      border-bottom: none;
+    }
+    .specs-table td:first-child {
+      font-weight: 600;
+      color: var(--text);
+      width: 45%;
+    }
+    .specs-table td:last-child {
+      font-family: 'Space Mono', monospace;
+      color: var(--text-muted);
+    }
+
+    /* =========================================================================
+       COMPREHENSIVE RESPONSIVE & ADAPTIVE STYLES (MOBILE / TABLET / DESKTOP)
+       WCAG 2.2 Level AA Targets (>= 44x44px), Fluid Clamps, Zero Horizontal Overflow
+       ========================================================================= */
+
+    /* Tablet & Medium Screens (768px - 1024px) */
+    @media (max-width: 1024px) {
+      .container {
+        padding: 0 32px;
+      }
+      header {
+        padding: 0 32px;
+        height: 80px;
+      }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin-bottom: 40px;
+      }
+      .hero-headline {
+        font-size: clamp(40px, 6.5vw, 72px);
+      }
+      .featured-staggered-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+      .stagger-col-right {
+        margin-top: 0;
+      }
+      .project-image-box {
+        height: 400px;
+      }
+      .project-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .project-detail-right {
+        position: static;
+        order: -1;
+      }
+      .project-theater-glow-wrapper {
+        height: 480px;
+      }
+      .menu-dropdown-wrapper {
+        right: 32px;
+        width: 320px;
+      }
+    }
+
+    /* Mobile Screens (< 768px down to 360px) */
+    @media (max-width: 767px) {
+      .container {
+        padding: 0 16px;
+      }
+      header {
+        padding: 0 16px;
+        height: 72px;
+      }
+      .brand-logo {
+        font-size: 18px;
+      }
+      .nav-actions {
+        gap: 6px;
+      }
+      .circle-social-btn {
+        width: 40px;
+        height: 40px;
+      }
+      .theme-toggle-btn {
+        width: 40px;
+        height: 40px;
+      }
+      .pill-menu-btn, .pill-back-btn {
+        height: 40px;
+        padding: 0 16px;
+        font-size: 11px;
+      }
+      .menu-dropdown-wrapper {
+        top: 76px;
+        right: 16px;
+        left: 16px;
+        width: auto;
+      }
+      .fullscreen-sandbox-section {
+        height: 68vh;
+        margin-top: 72px;
+      }
+      .hero-content-section {
+        padding: 50px 0 30px;
+      }
+      .hero-headline {
+        font-size: clamp(34px, 9.5vw, 50px);
+        letter-spacing: -0.03em;
+      }
+      .hero-lead-text {
+        font-size: 15px;
+      }
+      .morph-wrapper {
+        padding: 24px 0 60px;
+      }
+      .morph-stage {
+        width: 100%;
+        height: 320px;
+        border-radius: 24px;
+        animation: none;
+      }
+      .morph-stage.expanded {
+        height: 440px;
+      }
+      .morph-hud {
+        top: 16px;
+        left: 16px;
+        right: 16px;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .morph-info-card {
+        padding: 12px 14px;
+        max-width: 100%;
+      }
+      .hud-name {
+        font-size: 18px;
+      }
+      .hud-desc {
+        display: none;
+      }
+      .cults-btn {
+        height: 44px;
+        padding: 0 20px;
+        font-size: 11px;
+      }
+      .morph-dock {
+        bottom: 14px;
+        padding: 6px 14px;
+      }
+      .swatch {
+        width: 28px;
+        height: 28px;
+      }
+
+      /* Category pills horizontally scrollable on mobile */
+      .category-pills {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .category-pills::-webkit-scrollbar {
+        display: none;
+      }
+      .cat-pill {
+        flex-shrink: 0;
+        height: 42px;
+        padding: 0 18px;
+        font-size: 12px;
+      }
+      .category-seo-card {
+        padding: 22px 18px;
+        border-radius: 20px;
+        margin-bottom: 40px;
+      }
+      .category-seo-title {
+        font-size: 19px;
+      }
+      .category-seo-desc {
+        font-size: 13.5px;
+      }
+
+      /* Featured Cards Mobile */
+      .featured-section {
+        padding: 60px 0 90px;
+      }
+      .featured-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 32px;
+      }
+      .featured-title {
+        font-size: 38px;
+      }
+      .featured-staggered-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .stagger-col-left, .stagger-col-right {
+        gap: 40px;
+      }
+      .project-image-box {
+        height: 300px;
+        border-radius: 22px;
+      }
+      .project-name {
+        font-size: 24px;
+      }
+
+      /* Product Detail View Mobile */
+      #project-detail-view {
+        padding: 92px 0 60px;
+      }
+      .project-detail-title {
+        font-size: clamp(32px, 8vw, 44px);
+        margin-bottom: 16px;
+      }
+      .project-detail-story {
+        font-size: 14.5px;
+      }
+      .project-theater-glow-wrapper {
+        height: 350px;
+        border-radius: 24px;
+      }
+      .product-variant-configurator {
+        padding: 22px 16px;
+        border-radius: 20px;
+      }
+      .variant-options {
+        grid-template-columns: 1fr;
+      }
+      .summary-top {
+        flex-direction: column;
+        gap: 16px;
+      }
+      .summary-meta-grid {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .launch-project-btn {
+        width: 100%;
+        justify-content: center;
+        height: 48px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .social-links-group {
+        display: none !important;
+      }
+      .menu-socials-row {
+        display: flex;
+      }
+      header {
+        padding: 0 16px;
+      }
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+  <!-- Single-Card Dropdown Menu -->
+  <div class="menu-dropdown-wrapper" id="menu-dropdown">
+    <div class="menu-card">
+      <ul class="nav-card-links">
+        <li><a href="#sandbox" onclick="closeMenu()">HOME</a></li>
+        <li><a href="#hero-content" onclick="closeMenu()">ABOUT US</a></li>
+        <li><a href="#featured" onclick="scrollToProjects(event)">PROJECTS</a></li>
+        <li><a href="https://t.me/donbassisukrainians" target="_blank" data-social="telegram" onclick="closeMenu()">CONTACT</a></li>
+      </ul>
+      <div class="menu-socials-row">
+        <a href="https://t.me/donbassisukrainians" target="_blank" data-social="telegram" class="circle-social-btn" title="Telegram" aria-label="Telegram">
+          <svg viewBox="0 0 24 24" class="social-icon">
+            <path d="M21.5 2.5L2 10.5l6.5 2.5 2 6.5 3.5-3.5 5 4 2.5-17.5zM8.5 13l9.5-8-7.5 9.5-.5 3-1.5-4.5z"/>
+          </svg>
+        </a>
+        <a href="https://instagram.com/pri.mishok" target="_blank" data-social="instagram" class="circle-social-btn" title="Instagram" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" class="social-icon">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+        <a href="https://github.com/magari06" target="_blank" data-social="github" class="circle-social-btn" title="GitHub" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" class="social-icon">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <a class="brand-logo" onclick="closeProjectDetail()">
+      <span>MYSHOK</span>
+    </a>
+
+    <div class="nav-actions">
+      <!-- ← BACK Button (Visible only in Project Detail View) -->
+      <button class="pill-back-btn" id="nav-back-btn" onclick="closeProjectDetail()" style="display: none;">
+        <span>← BACK</span>
+      </button>
+
+      <!-- Animated Theme Toggle -->
+      <button class="theme-toggle-btn" id="theme-btn" title="Переключить тему" onclick="toggleTheme()">
+        <!-- Moon Icon (for light mode) -->
+        <svg class="theme-icon" id="icon-moon" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <!-- Sun Icon (for dark mode) -->
+        <svg class="theme-icon" id="icon-sun" viewBox="0 0 24 24" style="display: none;">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+      </button>
+
+      <!-- Social Links (Telegram, Instagram, GitHub) -->
+      <div class="social-links-group">
+        <a href="https://t.me/donbassisukrainians" target="_blank" data-social="telegram" class="circle-social-btn" title="Telegram" aria-label="Telegram">
+          <svg viewBox="0 0 24 24" class="social-icon">
+            <path d="M21.5 2.5L2 10.5l6.5 2.5 2 6.5 3.5-3.5 5 4 2.5-17.5zM8.5 13l9.5-8-7.5 9.5-.5 3-1.5-4.5z"/>
+          </svg>
+        </a>
+        <a href="https://instagram.com/pri.mishok" target="_blank" data-social="instagram" class="circle-social-btn" title="Instagram" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" class="social-icon">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+        <a href="https://github.com/magari06" target="_blank" data-social="github" class="circle-social-btn" title="GitHub" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" class="social-icon">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+        </a>
+      </div>
+
+      <!-- MENU •• / CLOSE : Toggle -->
+      <button class="pill-menu-btn" id="menu-btn" onclick="toggleMenu(event)" aria-label="Меню">
+        <span id="menu-btn-text">MENU</span>
+        <div class="dots-menu" id="menu-btn-dots">
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+    </div>
+  </header>
+
+  <!-- HOME VIEW WRAPPER -->
+  <div id="home-view">
+
+    <!-- FULLSCREEN 3D PLAYGROUND: PHYSICS SWARM (Models repel cursor & each other!) -->
+    <section class="fullscreen-sandbox-section" id="sandbox">
+      <div id="sandbox-canvas"></div>
+    </section>
+
+    <!-- Global Content Container (Wrapped with dynamic progressive drawing ribbon) -->
+    <div style="position: relative;">
+      <!-- DYNAMIC CANVAS FOR PROGRESSIVE DRAWING RIBBON -->
+      <canvas id="ribbon-canvas"></canvas>
+
+      <div class="container">
+        <!-- HERO HEADLINE -->
+        <section class="hero-content-section" id="hero-content">
+          <div class="hero-grid">
+            <h1 class="hero-headline">
+              Bold Ideas,<br>
+              Brought to Life
+            </h1>
+
+            <div class="hero-right">
+              <p class="hero-lead-text">
+                We combine design, motion, 3D, and development to create digital experiences that feel visually striking and technically seamless. From collectible 3D print sculptures to cutting-edge WebGL music environments.
+              </p>
+              <a href="#morph-section" class="pill-approach-btn">
+                <div class="dot"></div>
+                <span>OUR APPROACH</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- MORPHING WINDOW: Curving Shape -> Expands into Fox Model 3D Theater -->
+          <div class="morph-wrapper" id="morph-section">
+            <div class="morph-stage" id="morph-stage">
+              <div id="morph-canvas"></div>
+
+              <!-- Loading Indicator -->
+              <div class="morph-loader" id="morph-loader">
+                <div class="spinner-ring"></div>
+                <span>LOADING FOX 3D...</span>
+              </div>
+
+              <div class="morph-hint-tag">КРУТИТЕ СКРОЛЛ ДАЛЬШЕ ↓</div>
+
+              <!-- HUD Header appearing on expansion -->
+              <div class="morph-hud">
+                <div class="morph-info-card">
+                  <div class="hud-tag">// 3D PRINTABLE SCULPTURE</div>
+                  <h2 class="hud-name">Celestial Fox Guardian</h2>
+                  <p class="hud-desc">
+                    Оригинальная коллекционная модель лиса из Blender. Оптимизирована для 3D-печати на фотополимерных (SLA) и FDM-принтерах с поддержкой оригинальных текстур и кастомных материалов.
+                  </p>
+                </div>
+
+                <a href="https://cults3d.com" target="_blank" class="cults-btn">
+                  <span>GET ON CULTS3D</span>
+                  <span>↗</span>
+                </a>
+              </div>
+
+              <!-- Material Dock inside expanded theater -->
+              <div class="morph-dock">
+                <div class="swatch sw-original active" title="Оригинальные текстуры Blender" onclick="setMorphMat('original')"></div>
+                <div class="swatch sw-white" title="Белый PLA" onclick="setMorphMat('white')"></div>
+                <div class="swatch sw-dark" title="Тёмный сатин" onclick="setMorphMat('dark')"></div>
+                <div class="swatch sw-terracotta" title="Терракота" onclick="setMorphMat('terracotta')"></div>
+                <div class="swatch sw-blue" title="Cobalt Blue" onclick="setMorphMat('blue')"></div>
+                <div class="dock-sep"></div>
+                <button class="wire-btn" id="wire-btn" onclick="toggleMorphWire()">СЕТКА</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FEATURED WORK: VERTICAL STAGGERED CHECKERBOARD LAYOUT (Kategorie, Opisy SEO, Filtry) -->
+        <section class="featured-section" id="featured">
+          <div class="featured-head">
+            <div>
+              <div style="font-family: 'Space Mono', monospace; font-size: 11px; color: var(--blue-ribbon); margin-bottom: 8px; text-transform: uppercase;">// SELEKCJA PRAC & FABRYKACJA 3D</div>
+              <h2 class="featured-title">Katalog Projektów</h2>
+            </div>
+            <p class="featured-subtitle">
+              Autorskie rzeźby kolekcjonerskie, makiety architektoniczne i interaktywne aplikacje czasu rzeczywistego. Wybierz kategorię lub kliknij projekt, aby otworzyć konfigurator.
+            </p>
+          </div>
+
+          <!-- Category Filter Navigation (WCAG 2.2 Accessible Pills) -->
+          <div class="category-nav-wrapper">
+            <div class="category-pills" role="tablist" aria-label="Kategorie modeli 3D">
+              <button class="cat-pill active" type="button" data-cat="all" onclick="filterCategory('all', this)" role="tab" aria-selected="true">
+                <span>Wszystkie projekty</span>
+                <span class="pill-count">[4]</span>
+              </button>
+              <button class="cat-pill" type="button" data-cat="sculptures" onclick="filterCategory('sculptures', this)" role="tab" aria-selected="false">
+                <span>Figurki Kolekcjonerskie 3D</span>
+                <span class="pill-count">[2]</span>
+              </button>
+              <button class="cat-pill" type="button" data-cat="environment" onclick="filterCategory('environment', this)" role="tab" aria-selected="false">
+                <span>Architektura & Dioramy</span>
+                <span class="pill-count">[1]</span>
+              </button>
+              <button class="cat-pill" type="button" data-cat="digital" onclick="filterCategory('digital', this)" role="tab" aria-selected="false">
+                <span>Pliki STL & WebGL</span>
+                <span class="pill-count">[1]</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Dynamic Category SEO Card (Answer Capsule Standards: Informative, Useful, No-Slop) -->
+          <div class="category-seo-card" id="category-seo-card">
+            <div class="category-seo-badge" id="cat-seo-badge">// KOLEKCJA MYSHOK LAB • STANDARDY INŻYNIERII ADDYTYWNEJ</div>
+            <h3 class="category-seo-title" id="cat-seo-title">Autorskie Figurki 3D, Certyfikowane Pliki STL i Rzeźby Żywiczne SLA</h3>
+            <p class="category-seo-desc" id="cat-seo-desc">
+              Wszystkie modele w naszym katalogu powstają w oparciu o czystą, w 100% zamkniętą geometrię manifold (watertight). Oferujemy certyfikowane pliki cyfrowe STL z profesjonalnie przygotowanymi podporami presupported (Chitubox / Lychee) oraz limitowane, ręcznie wykańczane wydruki kolekcjonerskie z żywic fotopolimerowych 8K.
+            </p>
+            <div class="category-seo-tags" id="cat-seo-tags">
+              <span>✓ Geometria Manifold Watertight</span>
+              <span>✓ Pre-supported Chitubox & Lychee</span>
+              <span>✓ Tolerancja wpustów 0.15 mm</span>
+              <span>✓ Testowane na SLA 8K & FDM</span>
+            </div>
+          </div>
+
+          <!-- Staggered 2-Column Grid (Шахматный порядок z atrybutami data-category) -->
+          <div class="featured-staggered-grid" id="featured-grid">
+            
+            <!-- Left Column: Product 1 (Fox) & Product 3 (Harrenhal) -->
+            <div class="stagger-col-left">
+              
+              <!-- 1. Fox (Celestial Fox Guardian) -->
+              <div class="project-card" data-category="sculptures" onclick="openProjectDetail('fox')">
+                <div class="project-image-box" id="card-box-fox">
+                  <canvas class="card-3d-canvas" id="canvas-card-fox"></canvas>
+                  <div class="card-svg-fallback" id="fallback-card-fox">
+                    <svg width="280" height="260" viewBox="0 0 200 200" fill="none">
+                      <circle cx="100" cy="100" r="76" stroke="#ff5500" stroke-width="2" opacity="0.25"/>
+                      <polygon points="100,165 65,115 135,115" fill="none" stroke="var(--text)" stroke-width="5"/>
+                      <polygon points="65,115 45,60 85,90" fill="none" stroke="var(--text)" stroke-width="4"/>
+                      <polygon points="135,115 155,60 115,90" fill="none" stroke="var(--text)" stroke-width="4"/>
+                      <polygon points="85,90 100,55 115,90" fill="none" stroke="#ff5500" stroke-width="4"/>
+                      <circle cx="85" cy="115" r="4" fill="var(--text)"/>
+                      <circle cx="115" cy="115" r="4" fill="var(--text)"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="project-tags">RZEŹBA KOLEKCJONERSKA • BLENDER 5.2 • SLA 8K • PLIKI STL</div>
+                <div class="project-name">
+                  <span>Celestial Fox Guardian</span>
+                  <span class="arrow-icon">↗</span>
+                </div>
+              </div>
+
+              <!-- 3. Harrenhal (The Black Fortress) -->
+              <div class="project-card" data-category="environment" onclick="openProjectDetail('harrenhal')">
+                <div class="project-image-box" id="card-box-harrenhal">
+                  <canvas class="card-3d-canvas" id="canvas-card-harrenhal"></canvas>
+                  <div class="card-svg-fallback" id="fallback-card-harrenhal">
+                    <svg width="280" height="260" viewBox="0 0 240 220" fill="none">
+                      <rect x="20" y="160" width="200" height="18" fill="var(--border-hover)"/>
+                      <!-- 5 Titan Towers of Harrenhal -->
+                      <polygon points="45,160 52,70 68,70 75,160" fill="none" stroke="var(--text)" stroke-width="4"/>
+                      <polygon points="80,160 86,45 106,45 112,160" fill="none" stroke="var(--text)" stroke-width="4.5"/>
+                      <!-- Kingspyre melted spire -->
+                      <polygon points="120,160 128,30 148,30 156,160" fill="none" stroke="#ff5500" stroke-width="5"/>
+                      <polygon points="162,160 168,60 184,60 190,160" fill="none" stroke="var(--text)" stroke-width="4"/>
+                      <!-- Skybridge -->
+                      <line x1="68" y1="90" x2="86" y2="90" stroke="var(--text)" stroke-width="3"/>
+                      <line x1="106" y1="75" x2="128" y2="75" stroke="var(--text)" stroke-width="3"/>
+                      <line x1="148" y1="85" x2="168" y2="85" stroke="var(--text)" stroke-width="3"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="project-tags">MAKIETA ARCHITEKTONICZNA • DIORAMA FANTASY • MODUŁ FDM/SLA</div>
+                <div class="project-name">
+                  <span>Harrenhal: The Black Fortress</span>
+                  <span class="arrow-icon">↗</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Right Column: Product 2 (Ghost) & Product 4 (Project Music) [Offset down] -->
+            <div class="stagger-col-right">
+              
+              <!-- 2. Ghost (Specter Figurine) -->
+              <div class="project-card" data-category="sculptures" onclick="openProjectDetail('ghost')">
+                <div class="project-image-box" id="card-box-ghost">
+                  <canvas class="card-3d-canvas" id="canvas-card-ghost"></canvas>
+                  <div class="card-svg-fallback" id="fallback-card-ghost">
+                    <svg width="280" height="260" viewBox="0 0 200 200" fill="none">
+                      <circle cx="100" cy="100" r="72" stroke="var(--blue-ribbon)" stroke-width="2" opacity="0.3"/>
+                      <!-- Ghost silhouette -->
+                      <path d="M60 160 C55 120, 60 55, 100 55 C140 55, 145 120, 140 160 C130 150, 120 165, 110 155 C100 165, 90 150, 80 160 C70 150, 65 165, 60 160 Z" fill="none" stroke="var(--text)" stroke-width="5" stroke-linecap="round"/>
+                      <circle cx="85" cy="95" r="5" fill="var(--blue-ribbon)"/>
+                      <circle cx="115" cy="95" r="5" fill="var(--blue-ribbon)"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="project-tags">FIGURKA POSTACI • SUPPORT-FREE • DRUK ŻYWICZNY 8K</div>
+                <div class="project-name">
+                  <span>Specter Figurine</span>
+                  <span class="arrow-icon">↗</span>
+                </div>
+              </div>
+
+              <!-- 4. Project Music (Cyber Beat Crash) -->
+              <div class="project-card" data-category="digital" onclick="openProjectDetail('cyberbeat')">
+                <div class="project-image-box" id="card-box-cyberbeat">
+                  <canvas class="card-3d-canvas" id="canvas-card-cyberbeat"></canvas>
+                  <div class="card-svg-fallback" id="fallback-card-cyberbeat">
+                    <svg width="280" height="260" viewBox="0 0 220 200" fill="none">
+                      <!-- Audio-reactive arena cube -->
+                      <rect x="35" y="35" width="150" height="130" rx="16" fill="none" stroke="var(--border-hover)" stroke-width="2"/>
+                      <!-- Dynamic Soundwaves -->
+                      <line x1="60" y1="120" x2="60" y2="80" stroke="var(--blue-ribbon)" stroke-width="6" stroke-linecap="round"/>
+                      <line x1="80" y1="135" x2="80" y2="65" stroke="var(--text)" stroke-width="6" stroke-linecap="round"/>
+                      <line x1="100" y1="150" x2="100" y2="50" stroke="#ff007f" stroke-width="6" stroke-linecap="round"/>
+                      <line x1="120" y1="140" x2="120" y2="60" stroke="#00f5d4" stroke-width="6" stroke-linecap="round"/>
+                      <line x1="140" y1="125" x2="140" y2="75" stroke="var(--text)" stroke-width="6" stroke-linecap="round"/>
+                      <line x1="160" y1="115" x2="160" y2="85" stroke="var(--blue-ribbon)" stroke-width="6" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="project-tags">INTERAKTYWNY WEBGL 3D • WIZUALIZACJA AUDIO • THREE.JS</div>
+                <div class="project-name">
+                  <span>Cyber Beat Crash</span>
+                  <span class="arrow-icon">↗</span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+      </div>
+    </div>
+  </div> <!-- /home-view -->
+
+  <!-- PROJECT DETAIL VIEW (Dedicated Interactive Case Study z Konfiguratorem Wariantów) -->
+  <div id="project-detail-view" style="display: none;">
+    <div class="container">
+      <div class="project-detail-grid">
+        <!-- Left: Narrative, Specs, Links, Interactive Configurator & Specs Table -->
+        <div class="project-detail-left">
+          <h1 class="project-detail-title" id="pd-title">Project Title</h1>
+          <div class="project-detail-story" id="pd-story"></div>
+
+          <!-- Product Variant Configurator (Warianty i Fabrykacja 3D) -->
+          <div class="product-variant-configurator" id="pd-variant-configurator">
+            <div class="config-header">
+              <span class="config-tag">// WARIANTY WYDANIA & FABRYKACJA 3D</span>
+              <h3 class="config-title">Konfigurator Zamówienia</h3>
+            </div>
+
+            <!-- Group 1: Format -->
+            <div class="variant-group">
+              <label class="variant-label">1. FORMAT WYDANIA / MODELU:</label>
+              <div class="variant-options" id="var-format-group">
+                <button class="var-btn active" type="button" data-type="format" data-val="stl" onclick="selectVariant('format', 'stl', this)">
+                  <span class="var-name">Plik Cyfrowy STL</span>
+                  <span class="var-sub">Presupported + Chitubox/Lychee</span>
+                </button>
+                <button class="var-btn" type="button" data-type="format" data-val="raw" onclick="selectVariant('format', 'raw', this)">
+                  <span class="var-name">Wydruk Surowy SLA</span>
+                  <span class="var-sub">Oczyszczony IPA + UV 405nm</span>
+                </button>
+                <button class="var-btn" type="button" data-type="format" data-val="painted" onclick="selectVariant('format', 'painted', this)">
+                  <span class="var-name">Wydruk Master-Paint</span>
+                  <span class="var-sub">Ręcznie malowany akrylami</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Group 2: Scale -->
+            <div class="variant-group">
+              <label class="variant-label">2. SKALA I WYSOKOŚĆ GABARYTOWA:</label>
+              <div class="variant-options" id="var-scale-group">
+                <button class="var-btn active" type="button" data-type="scale" data-val="s12" onclick="selectVariant('scale', 's12', this)">
+                  <span class="var-name">Skala 1:12</span>
+                  <span class="var-sub" id="scale-sub-12">Wysokość ~120 mm</span>
+                </button>
+                <button class="var-btn" type="button" data-type="scale" data-val="s8" onclick="selectVariant('scale', 's8', this)">
+                  <span class="var-name">Skala 1:8</span>
+                  <span class="var-sub" id="scale-sub-8">Wysokość ~180 mm</span>
+                </button>
+                <button class="var-btn" type="button" data-type="scale" data-val="s6" onclick="selectVariant('scale', 's6', this)">
+                  <span class="var-name">Skala 1:6</span>
+                  <span class="var-sub" id="scale-sub-6">Wysokość ~260 mm</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Group 3: Material -->
+            <div class="variant-group">
+              <label class="variant-label">3. MATERIAŁ / ŻYWICA FOTOPOLIMEROWA:</label>
+              <div class="variant-options" id="var-material-group">
+                <button class="var-btn active" type="button" data-type="material" data-val="tough" onclick="selectVariant('material', 'tough', this)">
+                  <span class="var-name"><span class="var-dot" style="background:#6c757d;"></span> Tough Resin 8K</span>
+                  <span class="var-sub">Wysoka sztywność i mikrodetal</span>
+                </button>
+                <button class="var-btn" type="button" data-type="material" data-val="abslike" onclick="selectVariant('material', 'abslike', this)">
+                  <span class="var-name"><span class="var-dot" style="background:#212529;"></span> ABS-Like V2</span>
+                  <span class="var-sub">Odporna na upadki i zginanie</span>
+                </button>
+                <button class="var-btn" type="button" data-type="material" data-val="cobalt" onclick="selectVariant('material', 'cobalt', this)">
+                  <span class="var-name"><span class="var-dot" style="background:#2446ff;"></span> Cobalt Blue</span>
+                  <span class="var-sub">Półprzezroczysta barwiona</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Live Calculation & Summary Card -->
+            <div class="variant-summary-card">
+              <div class="summary-top">
+                <div class="price-block">
+                  <span class="price-label">SZACUNKOWA CENA:</span>
+                  <div class="price-val" id="var-price-display">49 PLN</div>
+                  <span class="price-note" id="var-delivery-display">Natychmiastowe pobranie cyfrowe (0 min)</span>
+                </div>
+                <div class="summary-meta-grid">
+                  <div>
+                    <span class="sm-label">SZAC. WAGA ŻYWICY:</span>
+                    <span class="sm-val" id="var-weight-display">120 g</span>
+                  </div>
+                  <div>
+                    <span class="sm-label">TOLERANCJA WPUSTÓW:</span>
+                    <span class="sm-val">0.15 mm</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="package-contents">
+                <span class="pkg-title">ZAWARTOŚĆ WYBRANEGO PAKIETU:</span>
+                <ul class="pkg-list" id="var-package-list">
+                  <li>Plik STL w 1 bryle (Watertight Manifold)</li>
+                  <li>Wersja z podziałem na klucze montażowe (Keys/Pins 0.15 mm)</li>
+                  <li>Profesjonalnie przetestowane podpory Lychee & Chitubox (.lys / .ctb)</li>
+                  <li>Instrukcja kątów naświetlania i profil ekspozycji PDF</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Semantic Engineering Specs Table for LLM & User Clarity (GEO / E-E-A-T) -->
+          <div class="specs-table-wrapper">
+            <div class="specs-table-header">Specyfikacja Techniczna & Parametry Fabrykacji</div>
+            <table class="specs-table">
+              <tbody>
+                <tr>
+                  <td>Integralność siatki</td>
+                  <td>100% Manifold Watertight (Bez odwróconych normalnych)</td>
+                </tr>
+                <tr>
+                  <td>Złożoność wielokątna</td>
+                  <td id="spec-polycount">420 000 trójkątów / quad-dominant</td>
+                </tr>
+                <tr>
+                  <td>Grubość ścianek (Drążenie)</td>
+                  <td>Min. 1.8 mm z kanałami odpływowymi (Drain holes 3.0 mm)</td>
+                </tr>
+                <tr>
+                  <td>Rekomendowana warstwa</td>
+                  <td>0.025 – 0.05 mm (SLA 8K) / 0.12 mm (FDM)</td>
+                </tr>
+                <tr>
+                  <td>Tolerancja spasowania</td>
+                  <td>0.15 mm (Offset ujemny pod skurcz żywicy 0.9%)</td>
+                </tr>
+                <tr>
+                  <td>Zgodność slicerów</td>
+                  <td>Lychee, Chitubox, PrusaSlicer, Bambu Studio, OrcaSlicer</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="project-meta-grid">
+            <div>
+              <h4 class="meta-heading">ZAKRES PRAC & SPECJALIZACJA</h4>
+              <ul class="meta-list" id="pd-services"></ul>
+            </div>
+            <div>
+              <h4 class="meta-heading">DOKUMENTACJA & ŹRÓDŁA</h4>
+              <ul class="meta-list" id="pd-links"></ul>
+            </div>
+          </div>
+
+          <a href="https://cults3d.com" target="_blank" class="launch-project-btn" id="pd-cta-btn">
+            <div class="dot"></div>
+            <span id="pd-cta-text">POBIERZ PLIKI STL NA CULTS3D ↗</span>
+          </a>
+        </div>
+
+        <!-- Right: Glowing Rainbow Neon Frame 3D Interactive Theater -->
+        <div class="project-detail-right">
+          <div class="project-theater-glow-wrapper">
+            <div class="project-theater-inner">
+              <div class="theater-brand-badge" id="pd-badge">MYSHOK</div>
+              <div id="detail-3d-canvas"></div>
+              
+              <div class="detail-loader" id="detail-loader">
+                <div class="spinner-ring"></div>
+                <span id="detail-loader-text">LOADING 3D SCENE...</span>
+              </div>
+
+              <div class="theater-hand-hint">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 11V6a2 2 0 0 0-4 0v5M14 10V4a2 2 0 0 0-4 0v7M10 10.5V6a2 2 0 0 0-4 0v8a7 7 0 0 0 14 0v-3a2 2 0 0 0-4 0v0"/>
+                </svg>
+                <span>TRY TO HOVER / DRAG</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- /project-detail-view -->
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-flex">
+      <div>MYSHOK LAB // INFORMATICS DESIGNER PORTFOLIO</div>
+      <a href="#sandbox" style="color: var(--text-muted); text-decoration: none;">BACK TO TOP ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    // =========================================================================
+    // 👤 ВАШИ СОЦИАЛЬНЫЕ СЕТИ (TELEGRAM, INSTAGRAM, GITHUB)
+    // Укажите свои ссылки или никнеймы ниже — они автоматически применятся ко всем кнопкам!
+    // =========================================================================
+    const MY_SOCIALS = {
+      telegram: 'https://t.me/donbassisukrainians',
+      instagram: 'https://instagram.com/pri.mishok',
+      github: 'https://github.com/magari06'
+    };
+
+    function applySocialLinks() {
+      if (MY_SOCIALS.telegram) {
+        document.querySelectorAll('[data-social="telegram"]').forEach(el => el.href = MY_SOCIALS.telegram);
+      }
+      if (MY_SOCIALS.instagram) {
+        document.querySelectorAll('[data-social="instagram"]').forEach(el => el.href = MY_SOCIALS.instagram);
+      }
+      if (MY_SOCIALS.github) {
+        document.querySelectorAll('[data-social="github"]').forEach(el => el.href = MY_SOCIALS.github);
+      }
+    }
+    applySocialLinks();
+
+    // --- 1. THEME SWITCHER (Animated Moon/Sun) ---
+    const htmlEl = document.documentElement;
+    const moonIcon = document.getElementById('icon-moon');
+    const sunIcon = document.getElementById('icon-sun');
+
+    function toggleTheme() {
+      const current = htmlEl.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      htmlEl.setAttribute('data-theme', next);
+
+      if (next === 'dark') {
+        moonIcon.style.display = 'none';
+        sunIcon.style.display = 'block';
+      } else {
+        moonIcon.style.display = 'block';
+        sunIcon.style.display = 'none';
+      }
+
+      updateThemes3D(next);
+      drawRibbon();
+    }
+
+    function toggleMenu(e) {
+      if (e) e.stopPropagation();
+      const drop = document.getElementById('menu-dropdown');
+      const text = document.getElementById('menu-btn-text');
+      const dots = document.getElementById('menu-btn-dots');
+      const isActive = drop.classList.toggle('active');
+
+      if (isActive) {
+        text.textContent = 'CLOSE';
+        dots.classList.add('dots-vertical');
+      } else {
+        text.textContent = 'MENU';
+        dots.classList.remove('dots-vertical');
+      }
+    }
+
+    function closeMenu() {
+      const drop = document.getElementById('menu-dropdown');
+      const text = document.getElementById('menu-btn-text');
+      const dots = document.getElementById('menu-btn-dots');
+      if (drop) drop.classList.remove('active');
+      if (text) text.textContent = 'MENU';
+      if (dots) dots.classList.remove('dots-vertical');
+    }
+
+    window.addEventListener('click', (e) => {
+      const drop = document.getElementById('menu-dropdown');
+      const btn = document.getElementById('menu-btn');
+      if (drop && drop.classList.contains('active') && !drop.contains(e.target) && !btn.contains(e.target)) {
+        closeMenu();
+      }
+    });
+
+    // Smooth scroll to projects with top alignment under fixed header (immune to morph window expansion)
+    let isNavigatingToProjects = false;
+    let projectScrollTimer = null;
+
+    function scrollToProjects(e) {
+      if (e) e.preventDefault();
+      closeMenu();
+
+      if (document.getElementById('project-detail-view').style.display === 'block') {
+        document.getElementById('project-detail-view').style.display = 'none';
+        document.getElementById('home-view').style.display = 'block';
+        document.getElementById('nav-back-btn').style.display = 'none';
+      }
+
+      const feat = document.getElementById('featured');
+      const morph = document.getElementById('morph-stage');
+      if (!feat) return;
+
+      if (projectScrollTimer) {
+        clearInterval(projectScrollTimer);
+        projectScrollTimer = null;
+      }
+
+      isNavigatingToProjects = true;
+
+      // Expand morphStage immediately without transition lag so the DOM layout reaches final dimensions right away
+      if (morph) {
+        morph.style.transition = 'none';
+        morph.classList.add('expanded');
+        void morph.offsetHeight; // force immediate reflow
+        if (typeof updateMorphCanvasSize === 'function') updateMorphCanvasSize();
+        requestAnimationFrame(() => {
+          morph.style.transition = '';
+        });
+      }
+
+      const headerOffset = 84;
+      const getTargetY = () => Math.round(feat.getBoundingClientRect().top + window.pageYOffset - headerOffset);
+
+      const startY = window.pageYOffset;
+      const targetY = getTargetY();
+      const distance = targetY - startY;
+      const duration = Math.min(Math.max(Math.abs(distance) * 0.45, 450), 850);
+      const startTime = Date.now();
+
+      projectScrollTimer = setInterval(() => {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = progress < 0.5 
+          ? 4 * progress * progress * progress 
+          : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+        const currentTarget = getTargetY();
+        const nextY = Math.round(startY + (currentTarget - startY) * ease);
+        window.scrollTo(0, nextY);
+
+        if (progress >= 1) {
+          clearInterval(projectScrollTimer);
+          projectScrollTimer = null;
+          window.scrollTo(0, getTargetY());
+          setTimeout(() => {
+            window.scrollTo(0, getTargetY());
+            isNavigatingToProjects = false;
+          }, 80);
+        }
+      }, 16);
+    }
+
+    // --- 2. FULLSCREEN 3D PLAYGROUND: CUBES CLUSTER (ATTRACT TO CENTER & SUBTLE CURSOR REPEL) ---
+    const sbContainer = document.getElementById('sandbox-canvas');
+    let sbW = sbContainer.clientWidth || window.innerWidth;
+    let sbH = sbContainer.clientHeight || Math.round(window.innerHeight * 0.92);
+    if (sbH <= 0) sbH = Math.round(window.innerHeight * 0.92);
+
+    const sbScene = new THREE.Scene();
+    const isDarkInit = htmlEl.getAttribute('data-theme') === 'dark';
+    sbScene.background = new THREE.Color(isDarkInit ? 0x090a0e : 0xf5f7fb);
+
+    const sbCamera = new THREE.PerspectiveCamera(45, sbW / sbH, 0.1, 100);
+    sbCamera.position.set(0, 0, 10);
+
+    const sbRenderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
+    sbRenderer.setSize(sbW, sbH);
+    sbRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    sbContainer.appendChild(sbRenderer.domElement);
+
+    const sbAmbient = new THREE.AmbientLight(0xffffff, 0.95);
+    sbScene.add(sbAmbient);
+
+    const sbKeyLight = new THREE.DirectionalLight(0xfff8f2, 2.6);
+    sbKeyLight.position.set(6, 8, 6);
+    sbScene.add(sbKeyLight);
+
+    const sbRimLight = new THREE.DirectionalLight(0x88aaff, 1.8);
+    sbRimLight.position.set(-6, -4, -4);
+    sbScene.add(sbRimLight);
+
+    // Cubes Swarm: large architectural cubes, reduced count, very gentle drift to center
+    const swarmGeo = new THREE.BoxGeometry(2.0, 2.0, 2.0);
+    const swarmMat = new THREE.MeshPhysicalMaterial({ 
+      color: 0x2446ff, 
+      roughness: 0.22, 
+      metalness: 0.25,
+      clearcoat: 0.85,
+      clearcoatRoughness: 0.15
+    });
+
+    const swarmItems = [];
+    const SWARM_COUNT = 12;
+
+    for (let i = 0; i < SWARM_COUNT; i++) {
+      const mesh = new THREE.Mesh(swarmGeo, swarmMat);
+      const s = 0.85 + Math.random() * 0.35; // Size ~1.7 to 2.4
+      mesh.scale.set(s, s, s);
+
+      // Open, spacious initial cloud distribution around center
+      const theta = Math.random() * Math.PI * 2;
+      const phi = Math.acos(2 * Math.random() - 1);
+      const r = 2.2 + Math.pow(Math.random(), 0.6) * 4.8;
+      mesh.position.set(
+        r * Math.sin(phi) * Math.cos(theta) * 1.5,
+        r * Math.sin(phi) * Math.sin(theta) * 0.95,
+        r * Math.cos(phi) * 0.75
+      );
+
+      // Static 3D orientation — no continuous spinning!
+      mesh.rotation.set(
+        (Math.floor(Math.random() * 4) * 0.25) * Math.PI,
+        (Math.floor(Math.random() * 4) * 0.25) * Math.PI,
+        0
+      );
+
+      const velocity = new THREE.Vector3(0, 0, 0);
+      const radius = s * 1.45; // collision/spacing radius for large cubes
+
+      sbScene.add(mesh);
+      swarmItems.push({ mesh, velocity, radius, s });
+    }
+
+    // Cursor tracking
+    let sbMouseX = 9999;
+    let sbMouseY = 9999;
+
+    sbContainer.addEventListener('mousemove', (e) => {
+      const rect = sbContainer.getBoundingClientRect();
+      sbMouseX = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+      sbMouseY = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+    });
+
+    sbContainer.addEventListener('mouseleave', () => {
+      sbMouseX = 9999;
+      sbMouseY = 9999;
+    });
+
+    function sbAnimate() {
+      requestAnimationFrame(sbAnimate);
+
+      const mouse3D = new THREE.Vector3(sbMouseX * 7.0, sbMouseY * 4.5, 0);
+      const count = swarmItems.length;
+      const REPEL_RADIUS = 3.0; // Responsive cursor repel radius
+
+      for (let i = 0; i < count; i++) {
+        const itemA = swarmItems[i];
+        const posX = itemA.mesh.position.x;
+        const posY = itemA.mesh.position.y;
+        const posZ = itemA.mesh.position.z;
+
+        // 1. REPEL FROM MOUSE CURSOR
+        const dxM = posX - mouse3D.x;
+        const dyM = posY - mouse3D.y;
+        const dzM = posZ - mouse3D.z;
+        const distMouse = Math.sqrt(dxM * dxM + dyM * dyM + dzM * dzM);
+
+        if (distMouse < REPEL_RADIUS && distMouse > 0.001) {
+          const p = 1 - distMouse / REPEL_RADIUS;
+          const pushForce = p * p * 0.45;
+          itemA.velocity.x += (dxM / distMouse) * pushForce;
+          itemA.velocity.y += (dyM / distMouse) * pushForce;
+          itemA.velocity.z += (dzM / distMouse) * pushForce * 0.35;
+        }
+
+        // 2. ULTRA-GENTLE ATTRACTION TOWARDS THE CENTER (очень слабое притяжение к центру)
+        const distCenter = Math.sqrt(posX * posX + posY * posY + posZ * posZ);
+        if (distCenter > 0.05) {
+          const pull = 0.0006; // reduced pull for wide floating space
+          const maxPull = 0.005;
+          itemA.velocity.x -= (posX / distCenter) * Math.min(distCenter * pull, maxPull);
+          itemA.velocity.y -= (posY / distCenter) * Math.min(distCenter * pull, maxPull);
+          itemA.velocity.z -= (posZ / distCenter) * Math.min(distCenter * pull, maxPull * 0.75);
+        }
+
+        // 3. MUTUAL SEPARATION (мягкое расталкивание между кубиками)
+        for (let j = i + 1; j < count; j++) {
+          const itemB = swarmItems[j];
+          const dx = posX - itemB.mesh.position.x;
+          const dy = posY - itemB.mesh.position.y;
+          const dz = posZ - itemB.mesh.position.z;
+          const distSq = dx * dx + dy * dy + dz * dz;
+          const minDist = itemA.radius + itemB.radius;
+
+          if (distSq < minDist * minDist && distSq > 0.0001) {
+            const dist = Math.sqrt(distSq);
+            const overlap = minDist - dist;
+            const nx = dx / dist;
+            const ny = dy / dist;
+            const nz = dz / dist;
+
+            const push = overlap * 0.08;
+            itemA.velocity.x += nx * push;
+            itemA.velocity.y += ny * push;
+            itemA.velocity.z += nz * push;
+
+            itemB.velocity.x -= nx * push;
+            itemB.velocity.y -= ny * push;
+            itemB.velocity.z -= nz * push;
+          }
+        }
+
+        // 4. INTEGRATE VELOCITY & DAMPING (NO continuous spin, NO flying around)
+        itemA.velocity.multiplyScalar(0.935); // Smooth friction
+        itemA.mesh.position.add(itemA.velocity);
+      }
+
+      sbRenderer.render(sbScene, sbCamera);
+    }
+    sbAnimate();
+
+    // --- UNIFIED GLB CACHE & DUAL-PROTOCOL LOADER (HTTP STREAMING + FILE:// SCRIPT FALLBACK) ---
+    const glbCache = new Map();
+    const glbLoadPromises = new Map();
+    const sharedGltfLoader = new THREE.GLTFLoader();
+
+    function loadModelScript(key) {
+      return new Promise((resolve, reject) => {
+        if (window['__MODEL_DATA_' + key]) {
+          return resolve(window['__MODEL_DATA_' + key]);
+        }
+        const scriptId = 'model-script-' + key;
+        const existing = document.getElementById(scriptId);
+        if (existing) {
+          existing.addEventListener('load', () => resolve(window['__MODEL_DATA_' + key]));
+          existing.addEventListener('error', reject);
+          return;
+        }
+        const script = document.createElement('script');
+        script.id = scriptId;
+        script.src = `./models/${key}_model.js`;
+        script.onload = () => {
+          resolve(window['__MODEL_DATA_' + key]);
+        };
+        script.onerror = (e) => {
+          console.warn(`Could not load model script ./models/${key}_model.js`, e);
+          reject(e);
+        };
+        document.head.appendChild(script);
+      });
+    }
+
+    async function loadGlbFromFileProtocol(key, onProgress) {
+      if (onProgress) onProgress(20);
+      const b64 = await loadModelScript(key);
+      if (!b64) throw new Error(`Model data for ${key} is empty`);
+      if (onProgress) onProgress(50);
+
+      const res = await fetch('data:application/octet-stream;base64,' + b64);
+      const arrayBuffer = await res.arrayBuffer();
+      if (onProgress) onProgress(80);
+
+      // Clean up big base64 string to keep memory usage minimal
+      delete window['__MODEL_DATA_' + key];
+
+      return new Promise((resolve, reject) => {
+        sharedGltfLoader.parse(
+          arrayBuffer,
+          '',
+          (gltf) => {
+            if (onProgress) onProgress(100);
+            resolve(gltf);
+          },
+          reject
+        );
+      });
+    }
+
+    function getOrLoadGlb(key, url, onProgress) {
+      if (glbCache.has(key)) {
+        return Promise.resolve(glbCache.get(key));
+      }
+      if (glbLoadPromises.has(key)) {
+        return glbLoadPromises.get(key);
+      }
+
+      const promise = new Promise((resolve, reject) => {
+        const processGltf = (gltf) => {
+          const loaded = gltf.scene;
+          const box = new THREE.Box3().setFromObject(loaded);
+          const center = box.getCenter(new THREE.Vector3());
+          const size = box.getSize(new THREE.Vector3());
+          const maxDim = Math.max(size.x, size.y, size.z) || 1;
+
+          loaded.traverse((child) => {
+            if (child.isMesh) {
+              child.castShadow = true;
+              child.receiveShadow = true;
+            }
+          });
+
+          const entry = { scene: loaded, gltf, box, center, size, maxDim };
+          glbCache.set(key, entry);
+          resolve(entry);
+        };
+
+        // When opened directly via file://, browser blocks XHR/fetch due to CORS origin null.
+        // We load via the local script loader seamlessly without any CORS restrictions or server needed!
+        if (window.location.protocol === 'file:') {
+          loadGlbFromFileProtocol(key, onProgress)
+            .then(processGltf)
+            .catch((err) => {
+              console.warn(`Local script loader failed for ${key}, falling back to fetch:`, err);
+              sharedGltfLoader.load(
+                url,
+                processGltf,
+                (xhr) => {
+                  if (onProgress && xhr.lengthComputable) {
+                    onProgress(Math.round((xhr.loaded / xhr.total) * 100));
+                  }
+                },
+                (fetchErr) => {
+                  console.error(`Could not load ${key} from ${url}:`, fetchErr);
+                  glbLoadPromises.delete(key);
+                  reject(fetchErr);
+                }
+              );
+            });
+          return;
+        }
+
+        // On HTTP/HTTPS, stream directly from the web server with Range support
+        sharedGltfLoader.load(
+          url,
+          processGltf,
+          (xhr) => {
+            if (onProgress && xhr.lengthComputable) {
+              onProgress(Math.round((xhr.loaded / xhr.total) * 100));
+            }
+          },
+          (err) => {
+            console.warn(`HTTP load failed for ${key} from ${url}, attempting model script fallback:`, err);
+            loadGlbFromFileProtocol(key, onProgress)
+              .then(processGltf)
+              .catch((scriptErr) => {
+                console.error(`Both HTTP and script load failed for ${key}:`, scriptErr);
+                glbLoadPromises.delete(key);
+                reject(err);
+              });
+          }
+        );
+      });
+
+      glbLoadPromises.set(key, promise);
+      return promise;
+    }
+
+    function createClonedModelInstance(key, targetScale = 2.0) {
+      const entry = glbCache.get(key);
+      if (!entry) return null;
+      const clone = entry.scene.clone(true);
+      const scale = targetScale / entry.maxDim;
+      clone.scale.set(scale, scale, scale);
+      clone.position.sub(entry.center.clone().multiplyScalar(scale));
+      const wrapper = new THREE.Group();
+      wrapper.add(clone);
+      return wrapper;
+    }
+
+    // --- 3. MORPHING 3D WINDOW: FOX MODEL (fox.glb) ---
+    const morphContainer = document.getElementById('morph-canvas');
+    const morphStage = document.getElementById('morph-stage');
+    const morphLoader = document.getElementById('morph-loader');
+
+    function getMorphDims() {
+      const rect = morphStage.getBoundingClientRect();
+      const w = Math.round(rect.width) || morphStage.clientWidth || 250;
+      const h = Math.round(rect.height) || morphStage.clientHeight || 165;
+      return { w: Math.max(w, 200), h: Math.max(h, 150) };
+    }
+
+    const mDims = getMorphDims();
+    const mScene = new THREE.Scene();
+    mScene.background = new THREE.Color(isDarkInit ? 0x12141c : 0xffffff);
+
+    const mCamera = new THREE.PerspectiveCamera(40, mDims.w / mDims.h, 0.1, 50);
+    mCamera.position.set(0, 0.2, 3.2);
+    mCamera.lookAt(0, 0, 0);
+
+    const mRenderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
+    mRenderer.setSize(mDims.w, mDims.h, false);
+    mRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    mRenderer.shadowMap.enabled = true;
+    mRenderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    morphContainer.appendChild(mRenderer.domElement);
+
+    const mAmbient = new THREE.AmbientLight(0xffffff, 1.2);
+    mScene.add(mAmbient);
+
+    const mKeyLight = new THREE.DirectionalLight(0xfff8f2, 2.8);
+    mKeyLight.position.set(5, 7, 5);
+    mScene.add(mKeyLight);
+
+    const mFillLight = new THREE.DirectionalLight(0x88bbff, 1.6);
+    mFillLight.position.set(-5, -2, -3);
+    mScene.add(mFillLight);
+
+    const mMats = {
+      white: new THREE.MeshStandardMaterial({ color: 0xf2f4f8, roughness: 0.25, metalness: 0.15 }),
+      dark: new THREE.MeshStandardMaterial({ color: 0x181a24, roughness: 0.2, metalness: 0.8 }),
+      terracotta: new THREE.MeshStandardMaterial({ color: 0xc85a32, roughness: 0.65, metalness: 0.05 }),
+      blue: new THREE.MeshStandardMaterial({ color: 0x2446ff, roughness: 0.25, metalness: 0.25 })
+    };
+    let activeMMat = 'original';
+    let foxModelGroup = new THREE.Group();
+    mScene.add(foxModelGroup);
+
+    let originalMaterials = new Map();
+    let isMWire = false;
+
+    function setupFoxMorphModel() {
+      const inst = createClonedModelInstance('fox', 1.95);
+      if (!inst) return;
+      while (foxModelGroup.children.length > 0) {
+        foxModelGroup.remove(foxModelGroup.children[0]);
+      }
+      originalMaterials.clear();
+      inst.traverse((child) => {
+        if (child.isMesh && child.material) {
+          originalMaterials.set(child, child.material);
+        }
+      });
+      foxModelGroup.add(inst);
+      if (morphLoader) {
+        morphLoader.style.opacity = '0';
+        setTimeout(() => { if (morphLoader) morphLoader.style.display = 'none'; }, 400);
+      }
+    }
+
+    // Load Fox via relative path './fox.glb'
+    getOrLoadGlb('fox', './fox.glb', (percent) => {
+      if (morphLoader) {
+        const span = morphLoader.querySelector('span');
+        if (span) span.textContent = `LOADING FOX: ${percent}%`;
+      }
+    }).then(() => {
+      setupFoxMorphModel();
+    }).catch((error) => {
+      console.warn('Could not load fox.glb, fallback to procedural sculpt:', error);
+      if (morphLoader) morphLoader.style.display = 'none';
+      const fallbackGeo = new THREE.TorusKnotGeometry(0.85, 0.26, 180, 32, 2, 3);
+      const fallbackMesh = new THREE.Mesh(fallbackGeo, mMats.blue);
+      foxModelGroup.add(fallbackMesh);
+      originalMaterials.set(fallbackMesh, mMats.blue);
+    });
+
+    function setMorphMat(key) {
+      activeMMat = key;
+      document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+      const activeEl = document.querySelector('.sw-' + key);
+      if (activeEl) activeEl.classList.add('active');
+
+      foxModelGroup.traverse((child) => {
+        if (child.isMesh) {
+          if (key === 'original') {
+            const orig = originalMaterials.get(child);
+            if (orig) {
+              child.material = orig;
+              orig.wireframe = isMWire;
+            }
+          } else {
+            const targetMat = mMats[key];
+            targetMat.wireframe = isMWire;
+            child.material = targetMat;
+          }
+        }
+      });
+    }
+
+    function toggleMorphWire() {
+      isMWire = !isMWire;
+      document.getElementById('wire-btn').classList.toggle('active', isMWire);
+
+      foxModelGroup.traverse((child) => {
+        if (child.isMesh && child.material) {
+          child.material.wireframe = isMWire;
+        }
+      });
+    }
+
+    // Manual Drag Orbit in Morph Window
+    let isDraggingMorph = false;
+    let prevMouseX = 0;
+    let prevMouseY = 0;
+
+    morphContainer.addEventListener('mousedown', (e) => {
+      isDraggingMorph = true;
+      prevMouseX = e.clientX;
+      prevMouseY = e.clientY;
+    });
+
+    window.addEventListener('mouseup', () => { isDraggingMorph = false; });
+    window.addEventListener('mousemove', (e) => {
+      if (!isDraggingMorph) return;
+      const dx = e.clientX - prevMouseX;
+      const dy = e.clientY - prevMouseY;
+      foxModelGroup.rotation.y += dx * 0.008;
+      foxModelGroup.rotation.x += dy * 0.008;
+      prevMouseX = e.clientX;
+      prevMouseY = e.clientY;
+    });
+
+    function mAnimate() {
+      requestAnimationFrame(mAnimate);
+      if (!isDraggingMorph) {
+        foxModelGroup.rotation.y += 0.005;
+      }
+      mRenderer.render(mScene, mCamera);
+    }
+    mAnimate();
+
+    // Trigger expansion on scroll
+    window.addEventListener('scroll', () => {
+      if (isNavigatingToProjects) return;
+      const rect = morphStage.getBoundingClientRect();
+      const triggerPoint = window.innerHeight * 0.30;
+
+      if (rect.top < triggerPoint) {
+        if (!morphStage.classList.contains('expanded')) {
+          morphStage.classList.add('expanded');
+        }
+      } else {
+        if (morphStage.classList.contains('expanded')) {
+          morphStage.classList.remove('expanded');
+        }
+      }
+    });
+
+    function updateMorphCanvasSize() {
+      const dims = getMorphDims();
+      mCamera.aspect = dims.w / dims.h;
+      mCamera.updateProjectionMatrix();
+      mRenderer.setSize(dims.w, dims.h, false);
+    }
+
+    if (window.ResizeObserver) {
+      const mResizeObserver = new ResizeObserver(() => {
+        updateMorphCanvasSize();
+      });
+      mResizeObserver.observe(morphStage);
+    }
+
+    // --- 4. DYNAMIC RESPONSIVE RIBBON: PROGRESSIVE DRAWING ---
+    const ribbonCanvas = document.getElementById('ribbon-canvas');
+    const ctx = ribbonCanvas.getContext('2d');
+
+    function resizeRibbonCanvas() {
+      const parent = ribbonCanvas.parentElement;
+      if (!parent) return;
+      ribbonCanvas.width = parent.clientWidth;
+      ribbonCanvas.height = parent.clientHeight;
+    }
+
+    let currentDrawProgress = 0.08;
+
+    function drawCubicPartial(c, p0, p1, p2, p3, t) {
+      if (t <= 0) return;
+      if (t >= 1) {
+        c.bezierCurveTo(p1.x, p1.y, p2.x, p2.y, p3.x, p3.y);
+        return;
+      }
+      const q0x = (1-t)*p0.x + t*p1.x, q0y = (1-t)*p0.y + t*p1.y;
+      const q1x = (1-t)*p1.x + t*p2.x, q1y = (1-t)*p1.y + t*p2.y;
+      const q2x = (1-t)*p2.x + t*p3.x, q2y = (1-t)*p2.y + t*p3.y;
+
+      const r0x = (1-t)*q0x + t*q1x, r0y = (1-t)*q0y + t*q1y;
+      const r1x = (1-t)*q1x + t*q2x, r1y = (1-t)*q1y + t*q2y;
+
+      const s0x = (1-t)*r0x + t*r1x, s0y = (1-t)*r0y + t*r1y;
+
+      c.bezierCurveTo(q0x, q0y, r0x, r0y, s0x, s0y);
+    }
+
+
+    function drawRibbon() {
+      const w = ribbonCanvas.width;
+      const h = ribbonCanvas.height;
+      if (!w || !h) return;
+
+      const parent = ribbonCanvas.parentElement;
+      const parentTop = parent ? (parent.getBoundingClientRect().top + window.pageYOffset) : 700;
+      const parentH = parent ? parent.offsetHeight : h;
+      const scrollStart = Math.max(0, parentTop - window.innerHeight * 0.5);
+      const scrollEnd = Math.max(scrollStart + 100, parentTop + parentH - window.innerHeight * 0.85);
+      const targetProgress = Math.min(1.0, Math.max(0.08, (window.pageYOffset - scrollStart) / (scrollEnd - scrollStart)));
+
+      currentDrawProgress += (targetProgress - currentDrawProgress) * 0.05;
+
+      ctx.clearRect(0, 0, w, h);
+
+      const isDark = htmlEl.getAttribute('data-theme') === 'dark';
+      ctx.strokeStyle = isDark ? '#385dff' : '#2446ff';
+      ctx.lineWidth = Math.max(38, w * 0.028);
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      ctx.shadowColor = isDark ? 'rgba(56, 93, 255, 0.45)' : 'rgba(36, 70, 255, 0.35)';
+      ctx.shadowBlur = 16;
+
+      const points = [
+        // 0: Start cleanly at left edge near hero top
+        { x: 0, y: 0.015 * h },
+        // 1: Weave towards center-right of hero section
+        { cx1: 0.38 * w, cy1: 0.03 * h, cx2: 0.48 * w, cy2: 0.11 * h, x: 0.32 * w, y: 0.13 * h },
+        // 2: Gentle loop around morph window
+        { cx1: 0.12 * w, cy1: 0.13 * h, cx2: 0.14 * w, cy2: 0.05 * h, x: 0.28 * w, y: 0.065 * h },
+        // 3: Downward plunge into the Featured Work section
+        { cx1: 0.46 * w, cy1: 0.08 * h, cx2: 0.08 * w, cy2: 0.20 * h, x: 0.15 * w, y: 0.25 * h },
+        // 4: Sweep across between Fox Guardian and Specter Figurine
+        { cx1: 0.24 * w, cy1: 0.30 * h, cx2: 0.82 * w, cy2: 0.26 * h, x: 0.86 * w, y: 0.35 * h },
+        // 5: Loop under the Specter Figurine
+        { cx1: 0.89 * w, cy1: 0.43 * h, cx2: 0.99 * w, cy2: 0.41 * h, x: 0.82 * w, y: 0.40 * h },
+        // 6: Flow across to the left towards Harrenhal
+        { cx1: 0.64 * w, cy1: 0.38 * h, cx2: 0.28 * w, cy2: 0.49 * h, x: 0.14 * w, y: 0.55 * h },
+        // 7: Loop around Harrenhal fortress
+        { cx1: 0.03 * w, cy1: 0.60 * h, cx2: 0.20 * w, cy2: 0.68 * h, x: 0.38 * w, y: 0.67 * h },
+        // 8: Sweep across to Cyber Beat Crash
+        { cx1: 0.55 * w, cy1: 0.66 * h, cx2: 0.86 * w, cy2: 0.73 * h, x: 0.84 * w, y: 0.81 * h },
+        // 9: Wrap around Cyber Beat and curve down towards bottom of catalog
+        { cx1: 0.82 * w, cy1: 0.88 * h, cx2: 0.46 * w, cy2: 0.91 * h, x: 0.58 * w, y: 0.94 * h },
+        // 10: Prominent concluding loop and flourish reaching the bottom
+        { cx1: 0.72 * w, cy1: 0.97 * h, cx2: 0.90 * w, cy2: 0.985 * h, x: 1.00 * w, y: 0.99 * h }
+      ];
+
+      ctx.beginPath();
+      ctx.moveTo(points[0].x, points[0].y);
+
+      const totalSegments = points.length - 1;
+      const currentSegment = currentDrawProgress * totalSegments;
+
+      for (let i = 1; i <= totalSegments; i++) {
+        const p = points[i];
+        const prev = (i === 1) ? points[0] : points[i-1];
+        if (currentSegment >= i) {
+          ctx.bezierCurveTo(p.cx1, p.cy1, p.cx2, p.cy2, p.x, p.y);
+        } else if (currentSegment > i - 1) {
+          const t = currentSegment - (i - 1);
+          drawCubicPartial(ctx, prev, {x: p.cx1, y: p.cy1}, {x: p.cx2, y: p.cy2}, p, t);
+          break;
+        }
+      }
+
+      ctx.stroke();
+    }
+
+    function ribbonRenderLoop() {
+      drawRibbon();
+      requestAnimationFrame(ribbonRenderLoop);
+    }
+
+    // --- 5. 3D CARD VIEWERS (FEATURED WORK LIVE INTERACTIVE 3D MODELS) ---
+    function buildCyberBeatVisual(parentGroup) {
+      const coreGeo = new THREE.IcosahedronGeometry(0.72, 2);
+      const coreMat = new THREE.MeshStandardMaterial({
+        color: 0x00f5d4,
+        wireframe: true,
+        emissive: 0x00a896,
+        roughness: 0.2
+      });
+      const core = new THREE.Mesh(coreGeo, coreMat);
+      parentGroup.add(core);
+
+      const r1 = new THREE.Mesh(new THREE.TorusGeometry(1.15, 0.035, 16, 64), new THREE.MeshStandardMaterial({ color: 0xff007f }));
+      r1.rotation.x = Math.PI / 3;
+      parentGroup.add(r1);
+
+      const r2 = new THREE.Mesh(new THREE.TorusGeometry(1.35, 0.035, 16, 64), new THREE.MeshStandardMaterial({ color: 0x2446ff }));
+      r2.rotation.y = Math.PI / 4;
+      parentGroup.add(r2);
+
+      const pCount = 200;
+      const partGeo = new THREE.BufferGeometry();
+      const partPos = new Float32Array(pCount * 3);
+      for (let i = 0; i < pCount * 3; i += 3) {
+        partPos[i] = (Math.random() - 0.5) * 3.2;
+        partPos[i+1] = (Math.random() - 0.5) * 3.2;
+        partPos[i+2] = (Math.random() - 0.5) * 3.2;
+      }
+      partGeo.setAttribute('position', new THREE.BufferAttribute(partPos, 3));
+      const partMat = new THREE.PointsMaterial({ color: 0x38b6ff, size: 0.04 });
+      parentGroup.add(new THREE.Points(partGeo, partMat));
+    }
+
+    const cardConfigs = {
+      fox: { key: 'fox', url: './fox.glb', scale: 2.1 },
+      ghost: { key: 'ghost', url: './ghost.glb', scale: 2.1 },
+      harrenhal: { key: 'harrenhal', url: './harrenhal.glb', scale: 2.3 },
+      cyberbeat: { key: 'cyberbeat', url: null, scale: 2.0 }
+    };
+
+    const cardViewers = {};
+
+    function initCard3D(cardId) {
+      const conf = cardConfigs[cardId];
+      if (!conf) return;
+
+      const canvas = document.getElementById(`canvas-card-${cardId}`);
+      const box = document.getElementById(`card-box-${cardId}`);
+      const statusPill = document.getElementById(`status-card-${cardId}`);
+      const fallback = document.getElementById(`fallback-card-${cardId}`);
+      if (!canvas || !box) return;
+
+      const w = box.clientWidth || 400;
+      const h = box.clientHeight || 480;
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(40, w / h, 0.1, 50);
+      camera.position.set(0, 0.15, 3.4);
+      camera.lookAt(0, 0, 0);
+
+      let renderer;
+      try {
+        renderer = new THREE.WebGLRenderer({
+          canvas,
+          antialias: true,
+          alpha: true,
+          powerPreference: 'default'
+        });
+        renderer.setSize(w, h, false);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+        renderer.shadowMap.enabled = true;
+      } catch (e) {
+        console.warn(`Card 3D viewer for ${cardId} could not initialize WebGL, using fallback SVG.`, e);
+        return;
+      }
+
+      const amb = new THREE.AmbientLight(0xffffff, 1.3);
+      scene.add(amb);
+
+      const keyLight = new THREE.DirectionalLight(0xfff8f0, 2.6);
+      keyLight.position.set(5, 7, 5);
+      scene.add(keyLight);
+
+      const rimLight = new THREE.DirectionalLight(0x2446ff, 1.8);
+      rimLight.position.set(-5, -2, -3);
+      scene.add(rimLight);
+
+      const modelGroup = new THREE.Group();
+      scene.add(modelGroup);
+
+      let isHovered = false;
+      let targetRotY = 0;
+      let targetRotX = 0;
+      let currentRotY = 0;
+      let currentRotX = 0;
+      let isVisible = true;
+
+      box.addEventListener('mousemove', (e) => {
+        isHovered = true;
+        const rect = box.getBoundingClientRect();
+        const nx = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+        const ny = -(((e.clientY - rect.top) / rect.height) * 2 - 1);
+        targetRotY = nx * 0.75;
+        targetRotX = -ny * 0.45;
+      });
+
+      box.addEventListener('mouseleave', () => {
+        isHovered = false;
+        targetRotX = 0;
+      });
+
+      function animateCard() {
+        requestAnimationFrame(animateCard);
+        if (!isVisible) return;
+
+        if (!isHovered) {
+          targetRotY += 0.007;
+        }
+        currentRotY += (targetRotY - currentRotY) * 0.07;
+        currentRotX += (targetRotX - currentRotX) * 0.07;
+
+        modelGroup.rotation.y = currentRotY;
+        modelGroup.rotation.x = currentRotX;
+
+        renderer.render(scene, camera);
+      }
+      animateCard();
+
+      if ('IntersectionObserver' in window) {
+        const obs = new IntersectionObserver((entries) => {
+          entries.forEach(en => { isVisible = en.isIntersecting; });
+        }, { threshold: 0.05 });
+        obs.observe(box);
+      }
+
+      function attachLoadedModel() {
+        const inst = createClonedModelInstance(conf.key, conf.scale);
+        if (inst) {
+          modelGroup.add(inst);
+          canvas.classList.add('loaded');
+          if (fallback) fallback.classList.add('hidden');
+        }
+      }
+
+      if (conf.key === 'cyberbeat') {
+        buildCyberBeatVisual(modelGroup);
+        canvas.classList.add('loaded');
+        if (fallback) fallback.classList.add('hidden');
+      } else {
+        getOrLoadGlb(conf.key, conf.url).then(() => {
+          attachLoadedModel();
+        }).catch((err) => {
+          // Keep clean SVG fallback
+        });
+      }
+
+      cardViewers[cardId] = { renderer, camera, box, scene, attachLoadedModel };
+    }
+
+    function initAllCardViewers() {
+      ['fox', 'ghost', 'harrenhal', 'cyberbeat'].forEach(initCard3D);
+    }
+
+    // --- 5.1 KATEGORIE I OPISY SEO (ANSWER CAPSULES & INFORMATION GAIN) ---
+    const categoriesData = {
+      all: {
+        badge: '// KOLEKCJA MYSHOK LAB • STANDARDY INŻYNIERII ADDYTYWNEJ',
+        title: 'Autorskie Figurki 3D, Certyfikowane Pliki STL i Rzeźby Żywiczne SLA',
+        desc: 'Wszystkie modele w naszym katalogu powstają w oparciu o czystą, w 100% zamkniętą geometrię manifold (watertight). Oferujemy certyfikowane pliki cyfrowe STL z profesjonalnie przygotowanymi podporami presupported (Chitubox / Lychee) oraz limitowane, ręcznie wykańczane wydruki kolekcjonerskie z żywic fotopolimerowych 8K.',
+        tags: ['✓ Geometria Manifold Watertight', '✓ Pre-supported Chitubox & Lychee', '✓ Tolerancja wpustów 0.15 mm', '✓ Testowane na SLA 8K & FDM']
+      },
+      sculptures: {
+        badge: '// KATEGORIA: KOLEKCJONERSKIE RZEŹBY 3D & POPIERSIA (SLA / RESIN)',
+        title: 'Kolekcjonerskie Figurki i Rzeźby Cyfrowe do Druku Żywicznego SLA 8K',
+        desc: 'Autorskie rzeźby postaci i stworzeń fantastycznych zoptymalizowane pod kątem fotopolimeryzacji w rozdzielczościach od 0,025 mm do 0,05 mm na warstwę. Każdy model posiada przetestowane podpory o zwężanych końcówkach (0.25–0.35 mm), eliminujące ubytki na powierzchni przy odrywaniu w ciepłej wodzie, oraz zintegrowane klucze montażowe.',
+        tags: ['✓ Rozdzielczość warstwy 0.025-0.05 mm', '✓ Żywice Tough & ABS-Like', '✓ Oczyszczone w myjce IPA', '✓ Klucze montażowe 0.15 mm']
+      },
+      environment: {
+        badge: '// KATEGORIA: ARCHITEKTURA FANTASTYCZNA & DIORAMY MODUŁOWE',
+        title: 'Makiety Twierdz i Modułowe Dioramy Architektoniczne (FDM / SLA)',
+        desc: 'Złożone struktury architektoniczne i makiety zamków dedykowane kolekcjonerom, graczom gier bitewnych i dioramistom. Projekty uwzględniają standardowe pole robocze drukarek FDM (200x200 mm) z systemem samocentrujących zamków szynowych, gwarantując sztywność konstrukcji bez konieczności klejenia.',
+        tags: ['✓ Moduły na pole 200x200 mm', '✓ Zoptymalizowane infill 10-15%', '✓ Mosty podwieszane i blanki', '✓ Skala 28mm / 32mm / Wargaming']
+      },
+      digital: {
+        badge: '// KATEGORIA: PLIKI CYFROWE STL & ASSETY CZASU RZECZYWISTEGO WEBGL',
+        title: 'Certyfikowane Pliki STL do Druku 3D i Środowiska Czasu Rzeczywistego',
+        desc: 'Certyfikowane dane cyfrowe gotowe do natychmiastowego pobrania lub integracji w interaktywnych aplikacjach WebGL. Gwarantujemy brak odwróconych normalnych, precyzyjne drążenie (hollowing) o grubości ścianek minimum 1.8 mm oraz ukryte kanały odpływowe (drain holes 3.0 mm).',
+        tags: ['✓ Natychmiastowa licencja Cults3D', '✓ WebGL 60 FPS na GPU', '✓ Kanały odpływowe 3.0 mm', '✓ Presupported .lys & .ctb']
+      }
+    };
+
+    function filterCategory(cat, btn) {
+      document.querySelectorAll('.cat-pill').forEach(p => {
+        p.classList.remove('active');
+        p.setAttribute('aria-selected', 'false');
+      });
+      if (btn) {
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+      }
+
+      // Update SEO Box (Answer Capsule)
+      const data = categoriesData[cat] || categoriesData.all;
+      const card = document.getElementById('category-seo-card');
+      if (card) {
+        card.style.opacity = '0.5';
+        card.style.transform = 'translateY(4px)';
+        setTimeout(() => {
+          document.getElementById('cat-seo-badge').textContent = data.badge;
+          document.getElementById('cat-seo-title').textContent = data.title;
+          document.getElementById('cat-seo-desc').textContent = data.desc;
+          const tagsEl = document.getElementById('cat-seo-tags');
+          if (tagsEl) {
+            tagsEl.innerHTML = data.tags.map(t => `<span>${t}</span>`).join('');
+          }
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, 150);
+      }
+
+      // Filter Cards
+      const cards = document.querySelectorAll('.project-card');
+      cards.forEach(card => {
+        const itemCat = card.getAttribute('data-category');
+        if (cat === 'all' || itemCat === cat) {
+          card.style.display = 'flex';
+          card.style.opacity = '1';
+          card.style.pointerEvents = 'auto';
+        } else {
+          card.style.display = 'none';
+          card.style.opacity = '0';
+          card.style.pointerEvents = 'none';
+        }
+      });
+
+      // Redraw ribbon after layout shift
+      setTimeout(() => {
+        if (typeof resizeRibbonCanvas === 'function') resizeRibbonCanvas();
+        if (typeof drawRibbon === 'function') drawRibbon();
+      }, 200);
+    }
+
+    // --- 6. PROJECT DETAIL VIEW CONTROLLER (FULLSCREEN SPA Z KONFIGURATOREM) ---
+    const projectData = {
+      fox: {
+        key: 'fox',
+        title: 'Celestial Fox Guardian',
+        badge: 'FOX // KITSUNE • RZEŹBA 3D',
+        polycount: '420 000 trójkątów / Quad-dominant',
+        scale12: 'Wysokość ~120 mm',
+        scale8: 'Wysokość ~180 mm',
+        scale6: 'Wysokość ~260 mm',
+        prices: {
+          stl: { s12: 49, s8: 49, s6: 49 },
+          raw: { s12: 189, s8: 279, s6: 449 },
+          painted: { s12: 490, s8: 680, s6: 980 }
+        },
+        weights: { s12: '140 g', s8: '340 g', s6: '820 g' },
+        story: [
+          'Celestial Fox Guardian to autorska rzeźba mistycznego lisa stworzona w programie Blender 5.2. Skupia się na wyrazistych płaszczyznach anatomicznych, płynnej dynamice ogona oraz ergonomii wyważenia środka ciężkości.',
+          'Model zoptymalizowany pod kątem precyzyjnego druku żywicznego SLA 8K oraz wielomateriałowego FDM. Każdy zwis (overhang) został zaprojektowany pod bezpiecznym kątem min. 35 stopni, co redukuje liczbę wymaganych podpór o 60% i chroni detale pyszczka przed skazami montażowymi.',
+          'Dostępny zarówno w całości jako zwarta statuetka, jak i w wersji modułowej podzielonej na 3 sekcje z samocentrującymi wpustami o ujemnym offsecie 0.15 mm, dopasowanymi do naturalnego skurczu żywic Tough.'
+        ],
+        services: ['Rzeźba Cyfrowa ZBrush/Blender', 'Optymalizacja pod SLA 8K', 'Przygotowanie Podpór Presupported', 'Teksturowanie Artystyczne', 'Wydanie Cults3D'],
+        links: [
+          { text: 'Karta modelu na Cults3D ↗', url: 'https://cults3d.com' },
+          { text: 'Oryginalna scena Blender (.blend) ↗', url: 'https://cults3d.com' },
+          { text: 'Preset ekspozycji SLA 0.05 mm ↗', url: 'https://cults3d.com' },
+          { text: 'Plik wielokolorowy FDM 3MF ↗', url: 'https://cults3d.com' }
+        ],
+        ctaText: 'POBIERZ PLIKI STL NA CULTS3D ↗',
+        ctaUrl: 'https://cults3d.com',
+        modelType: 'glb',
+        modelUrl: './fox.glb'
+      },
+      ghost: {
+        key: 'ghost',
+        title: 'Specter Figurine',
+        badge: 'SPECTER // GOST • FIGURKA 3D',
+        polycount: '280 000 trójkątów / Support-Free',
+        scale12: 'Wysokość ~110 mm',
+        scale8: 'Wysokość ~160 mm',
+        scale6: 'Wysokość ~240 mm',
+        prices: {
+          stl: { s12: 39, s8: 39, s6: 39 },
+          raw: { s12: 149, s8: 229, s6: 380 },
+          painted: { s12: 380, s8: 520, s6: 790 }
+        },
+        weights: { s12: '110 g', s8: '260 g', s6: '640 g' },
+        story: [
+          'Specter Figurine to organiczne studium draperii i lewitującej sylwetki upiora, wyeksportowane bezpośrednio z autorskiej sceny gost.blend.',
+          'Geometria została zaprojektowana w standardzie Support-Free: dolne fałdy szat rozszerzają się ku podstawie, tworząc samonośną strukturę o grubości ścianek 2.0 mm. Umożliwia to bezpośredni wydruk FDM/SLA bez jakichkolwiek podpór wewnątrz całunu.',
+          'Podstawa posiada zintegrowany kanał montażowy o średnicy 4.0 mm, idealny pod akrylowy przezroczysty trzpień lub lewitujący moduł magnetyczny.'
+        ],
+        services: ['Symulacja Tkanin (Cloth Sim)', 'Konstrukcja Support-Free', 'Design Postaci', 'Optymalizacja Siatki Manifold', 'Druk Kolekcjonerski'],
+        links: [
+          { text: 'Wydanie figurki na Cults3D ↗', url: 'https://cults3d.com' },
+          { text: 'Plik źródłowy gost.blend ↗', url: 'https://cults3d.com' },
+          { text: 'Poradnik ustawień slicera ↗', url: 'https://cults3d.com' },
+          { text: 'Turntable wideo 4K ↗', url: 'https://cults3d.com' }
+        ],
+        ctaText: 'POBIERZ PLIKI STL NA CULTS3D ↗',
+        ctaUrl: 'https://cults3d.com',
+        modelType: 'glb',
+        modelUrl: './ghost.glb'
+      },
+      harrenhal: {
+        key: 'harrenhal',
+        title: 'Harrenhal: The Black Fortress',
+        badge: 'HARRENHAL // GOT • MAKIETA 3D',
+        polycount: '850 000 trójkątów / 5 wież modułowych',
+        scale12: 'Skala Mini (Szerokość 220 mm)',
+        scale8: 'Skala Stołowa (Szerokość 380 mm)',
+        scale6: 'Skala Muzealna (Szerokość 580 mm)',
+        prices: {
+          stl: { s12: 89, s8: 89, s6: 89 },
+          raw: { s12: 480, s8: 790, s6: 1250 },
+          painted: { s12: 890, s8: 1490, s6: 2400 }
+        },
+        weights: { s12: '450 g', s8: '1100 g', s6: '2800 g' },
+        story: [
+          'Monumentalna makieta architektoniczna największej twierdzy Westeros — Harrenhal. Scena oparta na mistrzowskim projekcie z 800 siatek z modelowaniem zniszczeń i stopionego smoczym ogniem kamienia.',
+          'Cytadela obejmuje 5 kolosalnych wież-tytanów (w tym Kingspyre oraz Widow\'s Tower) połączonych podwieszanymi mostami. Całość podzielono na moduły mieszczące się w standardowym polu roboczym 200x200 mm z zamkami wpustowymi eliminującymi konieczność klejenia.',
+          'Zoptymalizowana grubość ścianek pod infill 10-15% zapewnia sztywność konstrukcji przy oszczędności do 40% materiału w porównaniu do modeli pełnych.'
+        ],
+        services: ['Architektura Fantasy', 'Makiety Epickiej Skali', 'Hard-Surface Modeling', 'Scena Blender 5.2', 'Cinematic LookDev'],
+        links: [
+          { text: 'Studium przypadku ArtStation ↗', url: 'https://artstation.com' },
+          { text: 'Pełna scena Harrenhal (.blend) ↗', url: 'https://cults3d.com' },
+          { text: 'Modułowy zestaw do druku STL ↗', url: 'https://cults3d.com' },
+          { text: 'Rendery architektoniczne 8K ↗', url: 'https://artstation.com' }
+        ],
+        ctaText: 'POBIERZ MAKIETĘ HARRENHAL STL ↗',
+        ctaUrl: 'https://cults3d.com',
+        modelType: 'glb',
+        modelUrl: './harrenhal.glb'
+      },
+      cyberbeat: {
+        key: 'cyberbeat',
+        title: 'Cyber Beat Crash',
+        badge: 'CYBER BEAT // 3D WEBGL',
+        polycount: 'Dynamiczne InstancedMesh (1200 cząstek)',
+        scale12: 'Licencja Web / WebGL',
+        scale8: 'Licencja Komercyjna B2B',
+        scale6: 'Pełny Kod Źródłowy + Audio API',
+        prices: {
+          stl: { s12: 120, s8: 290, s6: 590 },
+          raw: { s12: 120, s8: 290, s6: 590 },
+          painted: { s12: 120, s8: 290, s6: 590 }
+        },
+        weights: { s12: '0 g (Cyfrowy)', s8: '0 g (Cyfrowy)', s6: '0 g (Cyfrowy)' },
+        story: [
+          'Cyber Beat Crash to interaktywne trójwymiarowe środowisko WebGL reagujące na częstotliwości audio w czasie rzeczywistym. Integruje pełną analizę widma FFT z silnikami SoundCloud oraz Audius.',
+          'Architektura zoptymalizowana pod 60 FPS na GPU urządzeń mobilnych i stacjonarnych, wykorzystująca shadery GLSL, sub-basowe fale na posadzce i 1200 reaktywnych cząstek światła.',
+          'Dostępna jako gotowy komponent embed oraz moduł frontendowy do integracji w aplikacjach muzycznych i multimedialnych.'
+        ],
+        services: ['Interaktywny WebGL', 'Web Audio API / FFT', 'Silnik SoundCloud / Audius', 'Dynamika Cząstek', 'Architektura Frontendowa'],
+        links: [
+          { text: 'Uruchom aplikację na żywo (Lokalnie) ↗', url: 'http://localhost:5173/' },
+          { text: 'Kod źródłowy projektu na GitHubie ↗', url: 'https://github.com/magari06' },
+          { text: 'Integracja z API SoundCloud ↗', url: 'https://soundcloud.com' },
+          { text: 'Silnik Web3 Audius ↗', url: 'https://audius.co' }
+        ],
+        ctaText: 'URUCHOM APLIKACJĘ WEBGL ↗',
+        ctaUrl: 'http://localhost:5173/',
+        modelType: 'procedural',
+        modelUrl: null
+      }
+    };
+
+    // =========================================================================
+    // ⚙️ INTERAKTYWNY SELEKTOR WARIANTÓW PRODUKTU (LIVE CALCULATOR)
+    // =========================================================================
+    let currentVariant = {
+      format: 'stl',
+      scale: 's12',
+      material: 'tough',
+      currentProjectKey: 'fox'
+    };
+
+    function selectVariant(group, val, btn) {
+      currentVariant[group] = val;
+      const parent = btn.parentElement;
+      if (parent) {
+        parent.querySelectorAll('.var-btn').forEach(b => b.classList.remove('active'));
+      }
+      btn.classList.add('active');
+      updateVariantSummary();
+    }
+
+    function updateVariantSummary() {
+      const p = projectData[currentVariant.currentProjectKey] || projectData['fox'];
+      const fmt = currentVariant.format;
+      const sc = currentVariant.scale;
+      const mat = currentVariant.material;
+
+      const price = (p.prices && p.prices[fmt] && p.prices[fmt][sc]) ? p.prices[fmt][sc] : 49;
+      const weight = (p.weights && p.weights[sc]) ? p.weights[sc] : '120 g';
+
+      const priceDisplay = document.getElementById('var-price-display');
+      if (priceDisplay) priceDisplay.textContent = `${price} PLN`;
+
+      const weightDisplay = document.getElementById('var-weight-display');
+      if (weightDisplay) weightDisplay.textContent = weight;
+
+      const deliveryEl = document.getElementById('var-delivery-display');
+      const ctaBtn = document.getElementById('pd-cta-btn');
+      const ctaText = document.getElementById('pd-cta-text');
+
+      if (deliveryEl && ctaBtn && ctaText) {
+        if (fmt === 'stl') {
+          deliveryEl.textContent = 'Natychmiastowe pobranie cyfrowe (0 min)';
+          ctaText.textContent = 'POBIERZ PLIKI STL NA CULTS3D ↗';
+          ctaBtn.href = p.ctaUrl || 'https://cults3d.com';
+        } else if (fmt === 'raw') {
+          deliveryEl.textContent = 'Druk żywiczny SLA 8K: Realizacja 3–4 dni robocze';
+          ctaText.textContent = 'ZAMÓW WYDRUK SUROWY SLA (TELEGRAM) ↗';
+          ctaBtn.href = MY_SOCIALS.telegram || 'https://t.me/';
+        } else {
+          deliveryEl.textContent = 'Wydruk Master-Paint: Ręczne malowanie 10–14 dni';
+          ctaText.textContent = 'ZAMÓW EDYCJĘ KOLEKCJONERSKĄ MASTER-PAINT ↗';
+          ctaBtn.href = MY_SOCIALS.telegram || 'https://t.me/';
+        }
+      }
+
+      // Update package list
+      const pkgListEl = document.getElementById('var-package-list');
+      if (pkgListEl) {
+        if (fmt === 'stl') {
+          pkgListEl.innerHTML = `
+            <li>Kompletny plik STL w 1 bryle (100% Watertight Manifold)</li>
+            <li>Wersja modułowa z wpustami montażowymi (Tolerancja 0.15 mm)</li>
+            <li>Przetestowane fabryczne podpory Lychee & Chitubox (.lys / .ctb)</li>
+            <li>Dokumentacja techniczna z optymalnymi kątami ekspozycji PDF</li>
+          `;
+        } else if (fmt === 'raw') {
+          const matName = mat === 'tough' ? 'Tough 8K Grey' : mat === 'abslike' ? 'ABS-Like V2' : 'Translucent Cobalt Blue';
+          pkgListEl.innerHTML = `
+            <li>Fizyczny wydruk 3D z żywicy ${matName}</li>
+            <li>Podwójne mycie ultradźwiękowe w alkoholu IPA 99.9%</li>
+            <li>Utwardzenie komorowe UV 405nm (Brak lepkości i naprężeń)</li>
+            <li>Usunięte podpory, powierzchnia gotowa do podkładowania i malowania</li>
+          `;
+        } else {
+          pkgListEl.innerHTML = `
+            <li>Unikatowa figurka kolekcjonerska ręcznie malowana przez artystę</li>
+            <li>Wielowarstwowy podkład, cieniowanie aerografem i pędzlami sobolowymi</li>
+            <li>Wykończenie ochronnym werniksem satynowym UV-Resistant</li>
+            <li>Certyfikat autentyczności MYSHOK Lab z numerem seryjnym</li>
+          `;
+        }
+      }
+    }
+
+    let detailScene, detailCamera, detailRenderer, detailCurrentGroup;
+    let detailInitialized = false;
+    let isDraggingDetail = false;
+    let detailPrevX = 0, detailPrevY = 0;
+    const detailLoader = document.getElementById('detail-loader');
+    const detailLoaderText = document.getElementById('detail-loader-text');
+
+    function initDetail3D() {
+      const container = document.getElementById('detail-3d-canvas');
+      if (!container || detailInitialized) return;
+
+      const w = container.clientWidth || 500;
+      const h = container.clientHeight || 600;
+
+      detailScene = new THREE.Scene();
+      const isDark = htmlEl.getAttribute('data-theme') === 'dark';
+      detailScene.background = new THREE.Color(isDark ? 0x12141c : 0xffffff);
+
+      detailCamera = new THREE.PerspectiveCamera(40, w / h, 0.1, 100);
+      detailCamera.position.set(0, 0.35, 4.0);
+      detailCamera.lookAt(0, 0, 0);
+
+      try {
+        detailRenderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
+        detailRenderer.setSize(w, h, false);
+        detailRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        detailRenderer.shadowMap.enabled = true;
+        detailRenderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        container.appendChild(detailRenderer.domElement);
+      } catch (e) {
+        console.warn('Detail 3D viewer could not initialize WebGL', e);
+        if (detailLoader) detailLoader.style.display = 'none';
+        return;
+      }
+
+      const amb = new THREE.AmbientLight(0xffffff, 1.2);
+      detailScene.add(amb);
+
+      const keyLight = new THREE.DirectionalLight(0xfff8f0, 2.8);
+      keyLight.position.set(6, 8, 6);
+      detailScene.add(keyLight);
+
+      const rimLight = new THREE.DirectionalLight(0xe6007e, 2.2);
+      rimLight.position.set(-6, -3, -4);
+      detailScene.add(rimLight);
+
+      const cyanLight = new THREE.DirectionalLight(0x00f5d4, 1.8);
+      cyanLight.position.set(4, -5, 3);
+      detailScene.add(cyanLight);
+
+      container.addEventListener('mousedown', (e) => {
+        isDraggingDetail = true;
+        detailPrevX = e.clientX;
+        detailPrevY = e.clientY;
+      });
+      window.addEventListener('mouseup', () => { isDraggingDetail = false; });
+      window.addEventListener('mousemove', (e) => {
+        if (!isDraggingDetail || !detailCurrentGroup) return;
+        const dx = e.clientX - detailPrevX;
+        const dy = e.clientY - detailPrevY;
+        detailCurrentGroup.rotation.y += dx * 0.008;
+        detailCurrentGroup.rotation.x += dy * 0.008;
+        detailPrevX = e.clientX;
+        detailPrevY = e.clientY;
+      });
+
+      // Zoom support via wheel
+      container.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        detailCamera.position.z = Math.max(1.8, Math.min(8.0, detailCamera.position.z + e.deltaY * 0.003));
+      }, { passive: false });
+
+      function animDetail() {
+        requestAnimationFrame(animDetail);
+        const detailView = document.getElementById('project-detail-view');
+        if (!detailView || detailView.style.display !== 'block') return;
+        if (!isDraggingDetail && detailCurrentGroup) {
+          detailCurrentGroup.rotation.y += 0.005;
+        }
+        if (detailRenderer && detailScene && detailCamera) {
+          detailRenderer.render(detailScene, detailCamera);
+        }
+      }
+      animDetail();
+      detailInitialized = true;
+    }
+
+    function loadDetailModel(project) {
+      if (!detailScene) return;
+      if (detailCurrentGroup) {
+        detailScene.remove(detailCurrentGroup);
+        detailCurrentGroup = null;
+      }
+
+      if (project.modelType === 'glb' && project.modelUrl) {
+        if (detailLoader) {
+          detailLoader.style.display = 'flex';
+          detailLoader.style.opacity = '1';
+          detailLoaderText.textContent = `LOADING ${project.badge}...`;
+        }
+
+        // Instant if cached!
+        if (glbCache.has(project.key)) {
+          const inst = createClonedModelInstance(project.key, 2.2);
+          detailCurrentGroup = inst;
+          detailScene.add(inst);
+          if (detailLoader) detailLoader.style.display = 'none';
+          return;
+        }
+
+        getOrLoadGlb(project.key, project.modelUrl, (pct) => {
+          if (detailLoaderText) {
+            detailLoaderText.textContent = `DOWNLOADING 3D: ${pct}%`;
+          }
+        }).then(() => {
+          const inst = createClonedModelInstance(project.key, 2.2);
+          detailCurrentGroup = inst;
+          detailScene.add(inst);
+          if (detailLoader) detailLoader.style.display = 'none';
+        }).catch((err) => {
+          console.error('Failed to load detail GLB:', err);
+          if (detailLoaderText) detailLoaderText.textContent = 'ERROR LOADING MODEL';
+          setTimeout(() => { if (detailLoader) detailLoader.style.display = 'none'; }, 2000);
+        });
+      } else {
+        // Procedural Cyber Beat Holographic Pulsar
+        if (detailLoader) detailLoader.style.display = 'none';
+        const group = new THREE.Group();
+        buildCyberBeatVisual(group);
+        detailCurrentGroup = group;
+        detailScene.add(group);
+      }
+    }
+
+    function resizeDetailViewer() {
+      const container = document.getElementById('detail-3d-canvas');
+      if (!container || !detailRenderer || !detailCamera) return;
+      const w = container.clientWidth || 500;
+      const h = container.clientHeight || 600;
+      detailCamera.aspect = w / h;
+      detailCamera.updateProjectionMatrix();
+      detailRenderer.setSize(w, h, false);
+    }
+
+    function openProjectDetail(id) {
+      const p = projectData[id] || projectData['fox'];
+
+      document.getElementById('pd-title').textContent = p.title;
+      document.getElementById('pd-badge').textContent = p.badge;
+
+      const storyEl = document.getElementById('pd-story');
+      storyEl.innerHTML = p.story.map(s => `<p>${s}</p>`).join('');
+
+      const servicesEl = document.getElementById('pd-services');
+      servicesEl.innerHTML = p.services.map(s => `<li>${s}</li>`).join('');
+
+      const linksEl = document.getElementById('pd-links');
+      linksEl.innerHTML = p.links.map(l => `<li><a href="${l.url}" target="_blank">${l.text}</a></li>`).join('');
+
+      // Initialize Variant Configurator for this project
+      currentVariant.currentProjectKey = id;
+      currentVariant.format = 'stl';
+      currentVariant.scale = 's12';
+      currentVariant.material = 'tough';
+
+      document.querySelectorAll('#var-format-group .var-btn').forEach(b => {
+        b.classList.toggle('active', b.getAttribute('data-val') === 'stl');
+      });
+      document.querySelectorAll('#var-scale-group .var-btn').forEach(b => {
+        b.classList.toggle('active', b.getAttribute('data-val') === 's12');
+      });
+      document.querySelectorAll('#var-material-group .var-btn').forEach(b => {
+        b.classList.toggle('active', b.getAttribute('data-val') === 'tough');
+      });
+
+      const s12El = document.getElementById('scale-sub-12');
+      if (s12El) s12El.textContent = p.scale12 || 'Wysokość ~120 mm';
+      const s8El = document.getElementById('scale-sub-8');
+      if (s8El) s8El.textContent = p.scale8 || 'Wysokość ~180 mm';
+      const s6El = document.getElementById('scale-sub-6');
+      if (s6El) s6El.textContent = p.scale6 || 'Wysokość ~260 mm';
+
+      const polyEl = document.getElementById('spec-polycount');
+      if (polyEl) polyEl.textContent = p.polycount || '420 000 trójkątów / quad-dominant';
+
+      updateVariantSummary();
+
+      document.getElementById('home-view').style.display = 'none';
+      document.getElementById('project-detail-view').style.display = 'block';
+      document.getElementById('nav-back-btn').style.display = 'inline-flex';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      if (!detailInitialized) {
+        initDetail3D();
+      }
+      loadDetailModel(p);
+      setTimeout(resizeDetailViewer, 100);
+
+      closeMenu();
+    }
+
+    function closeProjectDetail() {
+      document.getElementById('project-detail-view').style.display = 'none';
+      document.getElementById('home-view').style.display = 'block';
+      document.getElementById('nav-back-btn').style.display = 'none';
+      scrollToProjects();
+    }
+
+    window.addEventListener('resize', () => {
+      sbW = sbContainer.clientWidth || window.innerWidth;
+      sbH = sbContainer.clientHeight || Math.round(window.innerHeight * 0.92);
+      if (sbH <= 0) sbH = Math.round(window.innerHeight * 0.92);
+      sbCamera.aspect = sbW / sbH;
+      sbCamera.updateProjectionMatrix();
+      sbRenderer.setSize(sbW, sbH);
+
+      updateMorphCanvasSize();
+      resizeRibbonCanvas();
+      resizeDetailViewer();
+
+      // Resize all card viewports
+      Object.keys(cardViewers).forEach(id => {
+        const cv = cardViewers[id];
+        if (cv && cv.box && cv.renderer && cv.camera) {
+          const cw = cv.box.clientWidth || 400;
+          const ch = cv.box.clientHeight || 480;
+          cv.camera.aspect = cw / ch;
+          cv.camera.updateProjectionMatrix();
+          cv.renderer.setSize(cw, ch, false);
+        }
+      });
+    });
+
+    function updateThemes3D(theme) {
+      const isDark = theme === 'dark';
+      const sbCol = isDark ? 0x090a0e : 0xf5f7fb;
+      const mCol = isDark ? 0x12141c : 0xffffff;
+      sbScene.background.set(sbCol);
+      mScene.background.set(mCol);
+      if (detailScene) {
+        detailScene.background.set(mCol);
+      }
+    }
+
+    if (window.ResizeObserver) {
+      const ribbonObserver = new ResizeObserver(() => {
+        resizeRibbonCanvas();
+        drawRibbon();
+      });
+      if (ribbonCanvas.parentElement) {
+        ribbonObserver.observe(ribbonCanvas.parentElement);
+      }
+    }
+
+    // Init All
+    setTimeout(() => {
+      resizeRibbonCanvas();
+      updateMorphCanvasSize();
+      ribbonRenderLoop();
+      initAllCardViewers();
+    }, 100);
+  </script>
+</body>
+</html>
