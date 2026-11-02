@@ -1,1 +1,1 @@
-https://myshok/
+https://magari06.github.io/myshok/
