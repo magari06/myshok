@@ -2,7 +2,7 @@
 chcp 65001 >nul
 cd /d "%~dp0"
 echo ========================================================
-echo   ARCHETYPE — 3D Portfolio Local Server
+echo   MYSHOK — 3D Portfolio Local Server
 echo   Serving 3D Models: fox.glb, ghost.glb, harrenhal.glb
 echo   URL: http://localhost:3000/
 echo ========================================================

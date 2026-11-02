@@ -107,7 +107,7 @@ const server = http.createServer((req, res) => {
 
 server.listen(PORT, () => {
   console.log(`\n======================================================`);
-  console.log(`  ARCHETYPE 3D Portfolio Server running at:`);
+  console.log(`  MYSHOK 3D Portfolio Server running at:`);
   console.log(`  http://localhost:${PORT}/ (http://127.0.0.1:${PORT}/)`);
   console.log(`======================================================\n`);
 });

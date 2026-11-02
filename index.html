@@ -901,41 +901,77 @@
       transform: translate(4px, -4px);
     }
 
-    /* PROJECT DETAIL VIEW */
+    /* PROJECT DETAIL VIEW (Split-Screen Ergonomics) */
     #project-detail-view {
-      min-height: 100vh;
-      padding: 130px 0 100px;
+      height: 100vh;
+      max-height: 100vh;
+      overflow: hidden;
+      padding: 84px 0 0;
       background-color: var(--bg);
       position: relative;
       z-index: 50;
+      box-sizing: border-box;
+    }
+    body.detail-open {
+      overflow: hidden !important;
+      height: 100vh;
+    }
+    #project-detail-view .container {
+      height: 100%;
+      max-width: 1560px;
+      padding: 0 48px;
+      box-sizing: border-box;
     }
     .project-detail-grid {
       display: grid;
-      grid-template-columns: 1fr 1.15fr;
-      gap: 60px;
-      align-items: flex-start;
+      grid-template-columns: 1.18fr 1fr;
+      gap: 48px;
+      height: 100%;
+      align-items: stretch;
+      box-sizing: border-box;
     }
     .project-detail-left {
       display: flex;
       flex-direction: column;
-      padding-top: 20px;
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 24px 36px 120px 0;
+      box-sizing: border-box;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 85, 0, 0.4) transparent;
+      -webkit-overflow-scrolling: touch;
+    }
+    .project-detail-left::-webkit-scrollbar {
+      width: 6px;
+    }
+    .project-detail-left::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .project-detail-left::-webkit-scrollbar-thumb {
+      background: rgba(255, 85, 0, 0.35);
+      border-radius: 6px;
+    }
+    .project-detail-left::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 85, 0, 0.7);
     }
     .project-detail-title {
-      font-size: clamp(48px, 6vw, 84px);
+      font-size: clamp(34px, 3.8vw, 54px);
       font-weight: 800;
-      letter-spacing: -0.04em;
-      line-height: 1.0;
-      margin-bottom: 28px;
+      letter-spacing: -0.03em;
+      line-height: 1.12;
+      margin-bottom: 22px;
     }
     .project-detail-story {
       font-size: 16px;
       color: var(--text-muted);
-      line-height: 1.65;
-      margin-bottom: 36px;
+      line-height: 1.7;
+      margin-bottom: 34px;
       display: flex;
       flex-direction: column;
       gap: 16px;
-      max-width: 520px;
+      max-width: 100%;
+      width: 100%;
     }
     .project-meta-grid {
       display: grid;
@@ -1002,13 +1038,20 @@
 
     /* Glowing Rainbow Neon Frame 3D Interactive Theater */
     .project-detail-right {
-      position: sticky;
-      top: 110px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      top: 0;
+      padding-bottom: 24px;
+      box-sizing: border-box;
     }
     .project-theater-glow-wrapper {
       position: relative;
       width: 100%;
-      height: 640px;
+      height: min(600px, calc(100vh - 140px));
+      max-height: calc(100vh - 140px);
       border-radius: 36px;
       padding: 3px;
       background: linear-gradient(135deg, #ff007f, #b5179e, #7209b7, #3a86ff, #00f5d4);
@@ -1026,7 +1069,13 @@
     #detail-3d-canvas {
       width: 100%;
       height: 100%;
+      display: block;
       cursor: grab;
+    }
+    #detail-3d-canvas canvas {
+      width: 100% !important;
+      height: 100% !important;
+      display: block;
     }
     #detail-3d-canvas:active {
       cursor: grabbing;
@@ -1478,16 +1527,39 @@
       .project-image-box {
         height: 400px;
       }
+      #project-detail-view {
+        height: auto;
+        min-height: 100vh;
+        max-height: none;
+        overflow: visible;
+        padding: 92px 0 60px;
+      }
+      body.detail-open {
+        overflow: visible !important;
+        height: auto !important;
+      }
+      #project-detail-view .container {
+        height: auto;
+      }
       .project-detail-grid {
         grid-template-columns: 1fr;
-        gap: 48px;
+        gap: 40px;
+        height: auto;
+      }
+      .project-detail-left {
+        height: auto;
+        overflow: visible;
+        padding: 0;
       }
       .project-detail-right {
         position: static;
         order: -1;
+        height: auto;
+        padding-bottom: 0;
       }
       .project-theater-glow-wrapper {
-        height: 480px;
+        height: 460px;
+        max-height: none;
       }
       .menu-dropdown-wrapper {
         right: 32px;
@@ -1645,17 +1717,17 @@
 
       /* Product Detail View Mobile */
       #project-detail-view {
-        padding: 92px 0 60px;
+        padding: 84px 0 60px;
       }
       .project-detail-title {
-        font-size: clamp(32px, 8vw, 44px);
+        font-size: clamp(28px, 7.5vw, 40px);
         margin-bottom: 16px;
       }
       .project-detail-story {
         font-size: 14.5px;
       }
       .project-theater-glow-wrapper {
-        height: 350px;
+        height: 340px;
         border-radius: 24px;
       }
       .product-variant-configurator {
@@ -2667,9 +2739,18 @@
       const entry = glbCache.get(key);
       if (!entry) return null;
       const clone = entry.scene.clone(true);
-      const scale = targetScale / entry.maxDim;
+
+      const box = new THREE.Box3().setFromObject(clone);
+      const center = box.getCenter(new THREE.Vector3());
+      const size = box.getSize(new THREE.Vector3());
+      const maxDim = Math.max(size.x, size.y, size.z) || entry.maxDim || 1;
+      const scale = targetScale / maxDim;
+
       clone.scale.set(scale, scale, scale);
-      clone.position.sub(entry.center.clone().multiplyScalar(scale));
+      clone.position.x = -center.x * scale;
+      clone.position.y = -center.y * scale;
+      clone.position.z = -center.z * scale;
+
       const wrapper = new THREE.Group();
       wrapper.add(clone);
       return wrapper;
@@ -3323,13 +3404,13 @@
         ],
         services: ['Interaktywny WebGL', 'Web Audio API / FFT', 'Silnik SoundCloud / Audius', 'Dynamika Cząstek', 'Architektura Frontendowa'],
         links: [
-          { text: 'Uruchom aplikację na żywo (Lokalnie) ↗', url: 'http://localhost:5173/' },
+          { text: 'Uruchom aplikację na żywo (GitHub Pages) ↗', url: 'https://magari06.github.io/' },
           { text: 'Kod źródłowy projektu na GitHubie ↗', url: 'https://github.com/magari06' },
           { text: 'Integracja z API SoundCloud ↗', url: 'https://soundcloud.com' },
           { text: 'Silnik Web3 Audius ↗', url: 'https://audius.co' }
         ],
         ctaText: 'URUCHOM APLIKACJĘ WEBGL ↗',
-        ctaUrl: 'http://localhost:5173/',
+        ctaUrl: 'https://magari06.github.io/',
         modelType: 'procedural',
         modelUrl: null
       }
@@ -3375,18 +3456,22 @@
       const ctaText = document.getElementById('pd-cta-text');
 
       if (deliveryEl && ctaBtn && ctaText) {
-        if (fmt === 'stl') {
+        if (p.key === 'cyberbeat') {
+          deliveryEl.textContent = 'Aplikacja WebGL na żywo na GitHub Pages (0 min)';
+          ctaText.textContent = p.ctaText || 'URUCHOM APLIKACJĘ WEBGL ↗';
+          ctaBtn.href = p.ctaUrl || 'https://magari06.github.io/';
+        } else if (fmt === 'stl') {
           deliveryEl.textContent = 'Natychmiastowe pobranie cyfrowe (0 min)';
           ctaText.textContent = 'POBIERZ PLIKI STL NA CULTS3D ↗';
           ctaBtn.href = p.ctaUrl || 'https://cults3d.com';
         } else if (fmt === 'raw') {
           deliveryEl.textContent = 'Druk żywiczny SLA 8K: Realizacja 3–4 dni robocze';
           ctaText.textContent = 'ZAMÓW WYDRUK SUROWY SLA (TELEGRAM) ↗';
-          ctaBtn.href = MY_SOCIALS.telegram || 'https://t.me/';
+          ctaBtn.href = MY_SOCIALS.telegram || 'https://t.me/donbassisukrainians';
         } else {
           deliveryEl.textContent = 'Wydruk Master-Paint: Ręczne malowanie 10–14 dni';
           ctaText.textContent = 'ZAMÓW EDYCJĘ KOLEKCJONERSKĄ MASTER-PAINT ↗';
-          ctaBtn.href = MY_SOCIALS.telegram || 'https://t.me/';
+          ctaBtn.href = MY_SOCIALS.telegram || 'https://t.me/donbassisukrainians';
         }
       }
 
@@ -3437,13 +3522,13 @@
       const isDark = htmlEl.getAttribute('data-theme') === 'dark';
       detailScene.background = new THREE.Color(isDark ? 0x12141c : 0xffffff);
 
-      detailCamera = new THREE.PerspectiveCamera(40, w / h, 0.1, 100);
-      detailCamera.position.set(0, 0.35, 4.0);
+      detailCamera = new THREE.PerspectiveCamera(38, w / h, 0.1, 100);
+      detailCamera.position.set(0, 0.2, 3.8);
       detailCamera.lookAt(0, 0, 0);
 
       try {
         detailRenderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
-        detailRenderer.setSize(w, h, false);
+        detailRenderer.setSize(w, h, true);
         detailRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         detailRenderer.shadowMap.enabled = true;
         detailRenderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -3558,9 +3643,10 @@
       if (!container || !detailRenderer || !detailCamera) return;
       const w = container.clientWidth || 500;
       const h = container.clientHeight || 600;
+      if (w <= 0 || h <= 0) return;
       detailCamera.aspect = w / h;
       detailCamera.updateProjectionMatrix();
-      detailRenderer.setSize(w, h, false);
+      detailRenderer.setSize(w, h, true);
     }
 
     function openProjectDetail(id) {
@@ -3608,20 +3694,27 @@
 
       document.getElementById('home-view').style.display = 'none';
       document.getElementById('project-detail-view').style.display = 'block';
+      document.body.classList.add('detail-open');
       document.getElementById('nav-back-btn').style.display = 'inline-flex';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // Reset scroll on left column
+      const leftCol = document.querySelector('.project-detail-left');
+      if (leftCol) leftCol.scrollTop = 0;
+      window.scrollTo({ top: 0, behavior: 'auto' });
 
       if (!detailInitialized) {
         initDetail3D();
       }
       loadDetailModel(p);
-      setTimeout(resizeDetailViewer, 100);
+      setTimeout(resizeDetailViewer, 40);
+      setTimeout(resizeDetailViewer, 160);
 
       closeMenu();
     }
 
     function closeProjectDetail() {
       document.getElementById('project-detail-view').style.display = 'none';
+      document.body.classList.remove('detail-open');
       document.getElementById('home-view').style.display = 'block';
       document.getElementById('nav-back-btn').style.display = 'none';
       scrollToProjects();
